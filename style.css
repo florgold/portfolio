@@ -1,0 +1,566 @@
+.navbar, 
+.grid-container {
+    opacity: 0;
+    transition: opacity 1s ease-in; /* Para que aparezca suavemente */
+}
+
+/* Cuando la landing ya no esté, mostramos el contenido */
+.content-visible .navbar,
+.content-visible .grid-container {
+    opacity: 1;
+}
+
+/* La landing empieza totalmente invisible para evitar el parpadeo */
+.landing-page {
+    display: none; 
+    opacity: 0;
+}
+
+/* Esta clase la usaremos para mostrarla solo cuando sea necesario */
+.landing-visible {
+    display: flex !important;
+    opacity: 1;
+}
+
+.landing-page {
+    position: fixed; /* Cubre toda la pantalla y se queda fija */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-image: url('img/landing.jpg'); /* Reemplaza con tu archivo */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* Asegura que esté por encima de todo */
+    cursor: pointer;
+    transition: opacity 0.8s ease, visibility 0.8s;
+}
+
+.landing-content {
+    text-align: left; /* Alineación como en tu imagen */
+    color: white;
+    padding-left: 30%;
+}
+
+.landing-content h1 {
+    font-size: 48px;
+    font-weight: 500;
+    margin: 0;
+    letter-spacing: -1px;
+}
+
+.landing-content p {
+    transition: all 0.4s ease-in-out; /* Para que el glow entre y salga suave */
+    text-shadow: 0 0 5px rgba(255, 255, 255, 0); /* Invisible por defecto */
+    margin-top: -5px;
+}
+
+/* Efecto al pasar el mouse por el contenedor */
+.landing-content:hover h1 {
+    color: #fff;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.7), 
+                 0 0 30px rgba(255, 255, 255, 0.4);
+    transform: scale(1.02); /* Un leve aumento de tamaño opcional */
+}
+
+.landing-content:hover p {
+    color: #fff;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Clase para ocultar la portada con JS */
+.landing-hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Configuración General */
+body {
+    background-color: #151414;
+    color: #fff;
+    font-family: 'Geist', sans-serif;
+    margin: 0;
+    padding: 0 40px;
+}
+
+/* Si NO hay landing en la página, el contenido debe verse siempre */
+body:not(:has(#landing)) .navbar,
+body:not(:has(#landing)) .grid-container {
+    opacity: 1;
+}
+
+/* Navegación Superior */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 0;
+    /* Asegúrate de que la tipografía soporte bold y regular */
+    font-family: 'Geist', sans-serif; 
+}
+
+.navbar ul {
+    list-style: none; /* Quitamos los puntos de la lista */
+    display: flex;
+    gap: 40px;
+    padding: 0;
+    margin: 0;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #888;          /* Gris para los no seleccionados */
+    font-weight: 400;     /* Regular */
+    font-size: 14px;
+    text-transform: none; /* Forzamos mayúsculas */
+    transition: color 0.3s ease;
+}
+
+/* El seleccionado Y el hover se ven igual: Blancos y Bold */
+.navbar a.active, 
+.navbar a:hover {
+    color: #fff;
+    font-weight: 700;     /* Bold */
+}
+
+.navbar, .grid-container {
+    opacity: 0;
+    transition: opacity 1s ease-in;
+}
+
+.content-visible .navbar,
+.content-visible .grid-container {
+    opacity: 1;
+}
+
+/* Estilo para el nombre en la esquina derecha */
+.user-name {
+    font-weight: 400;
+    font-size: 14px;
+    color: #fff;
+    text-transform: none; /* Mantiene la estética de la imagen */
+}
+
+/* Cuadrícula de Proyectos */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    column-gap: 40px;    /* Espacio entre columnas */
+    row-gap: 90px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+.project-card {
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+}
+
+.project-card:hover {
+    opacity: 0.8;
+}
+
+.project-card img {
+    width: 100%;            /* Ocupa todo el ancho de su columna */
+    aspect-ratio: 4 / 3;   /* Fuerza el formato rectangular horizontal */
+    object-fit: cover;      /* Corta la imagen para que llene el recuadro sin estirarse */
+    display: block;
+    filter: grayscale(20%); /* Opcional: para darle ese toque melancólico de tu diseño */
+    transition: filter 0.3s ease;
+}
+
+.project-card img:hover {
+    filter: grayscale(0%);  /* Recupera color al pasar el mouse */
+}
+
+.project-info h3 {
+    font-size: 16px;
+    margin: 1;
+    font-weight: bold;
+    text-transform: none;
+}
+
+.project-info p {
+    font-size: 13px;
+    color: #aaa;
+    margin: 5px 0 0 0;
+    margin-top: -10px;
+}
+
+/* Responsivo para celulares */
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* 1 columna en móvil */
+    }
+}
+
+/* --- Sección +INFO --- */
+
+.info-container {
+    display: flex;
+    justify-content: flex-start;
+    gap: -100px;
+    margin-top: 30px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Columna de texto */
+.info-text {
+    flex: 1;
+}
+
+.info-text p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 40px;
+    text-align: justify;
+}
+
+
+.cv-link {
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    border-bottom: 1px solid #fff;
+    padding-bottom: 5px;
+    transition: opacity 0.3s;
+}
+
+.cv-link:hover {
+    opacity: 0.6;
+}
+
+/* Columna de imagen y contacto */
+.info-visual {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.photo-wrapper img {
+    width: 100%;
+    max-width: 400px; /* Ajusta según el tamaño de tu foto */
+    margin-bottom: 20px;
+}
+
+.contact-data {
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.contact-data p {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.contact-data a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+    margin-top: 0;       /* Aseguramos que no tengan margen arriba */
+    line-height: 1;
+    margin-bottom: 100px;
+}
+
+.contact-data a:hover {
+    color: #888;
+}
+
+/* Responsivo para móviles */
+@media (max-width: 768px) {
+    .info-container {
+        flex-direction: column;
+        gap: 50px;
+        padding: 0 20px;
+    }
+}
+
+/* Contenedor Principal */
+.project-detail-container {
+    max-width: 1200px;
+    margin: 80px auto;
+    padding: 0 40px;
+}
+
+/* Layout Superior: Texto e Izquierda, Video a la Derecha */
+.project-hero {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    margin-bottom: 80px;
+}
+
+.project-description {
+    flex: 1; /* 1 parte de espacio */
+   /* position: sticky; /* Opcional: el texto se queda fijo mientras scrolleas el video */
+   /* top: 100px; */
+    height: max-content; 
+}
+
+.project-description h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.project-year {
+    color: #555;
+    font-size: 14px;
+    margin-bottom: 30px;
+    
+}
+
+.project-body-text p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+/* Video Responsive */
+.video-responsive {
+    position: relative;
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    width: 100%;
+}
+
+.video-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.project-video {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Espacio entre el video y la galería */
+}
+
+.project-gallery {
+    column-count: 2;
+    column-gap: 15px;
+    width: 100%; /* Ahora se alinea perfecto con el video */
+}
+
+.project-gallery img {
+    width: 100%;
+    display: block;
+    margin-bottom: 15px;
+    break-inside: avoid; /* Evita que las fotos se corten entre columnas */
+    cursor: zoom-in;
+}
+
+.project-gallery img:hover {
+    opacity: 0.8;       /* Un toque visual al pasar el mouse */
+}
+
+/* Esta clase anula las columnas y crea una fila */
+.gallery-row {
+    display: flex;          /* Alinea las fotos de costado */
+    flex-direction: row;    /* Asegura que sea una fila */
+    column-count: auto;     /* Desactiva las columnas anteriores */
+    gap: 15px;              /* Espacio entre las fotos */
+    justify-content: space-between; /* Estira las fotos para que ocupen todo el ancho del video */
+}
+
+.gallery-row img {
+    width: calc(33% - 12px); /* Si son 4 fotos, cada una ocupa el 25% menos el espacio del gap */
+    height: auto;           /* Mantiene la proporción vertical */
+    margin-bottom: 0;       /* Quitamos el margen que usábamos en columnas */
+    object-fit: cover;
+}
+
+/* Ajuste para móviles: si son muchas verticales, mejor que vuelvan a ser 2 y 2 */
+@media (max-width: 768px) {
+    .gallery-row {
+        flex-wrap: wrap; 
+    }
+    .gallery-row img {
+        width: calc(50% - 8px); /* 2 fotos por fila en celular */
+    }
+}
+
+.gallery-row-4 {
+    display: flex;          /* Alinea las fotos de costado */
+    flex-direction: row;    /* Asegura que sea una fila */
+    column-count: auto;     /* Desactiva las columnas anteriores */
+    gap: 15px;              /* Espacio entre las fotos */
+    justify-content: space-between; /* Estira las fotos para que ocupen todo el ancho del video */
+}
+
+.gallery-row-4 img {
+    width: calc(25% - 12px); /* Si son 4 fotos, cada una ocupa el 25% menos el espacio del gap */
+    height: auto;           /* Mantiene la proporción vertical */
+    margin-bottom: 0;       /* Quitamos el margen que usábamos en columnas */
+    object-fit: cover;
+}
+
+/* Ajuste para móviles: si son muchas verticales, mejor que vuelvan a ser 2 y 2 */
+@media (max-width: 768px) {
+    .gallery-row-4 {
+        flex-wrap: wrap; 
+    }
+    .gallery-row-4 img {
+        width: calc(50% - 8px); /* 2 fotos por fila en celular */
+    }
+}
+
+/* Ajuste para que las fotos ocupen todo el ancho en móviles */
+@media (max-width: 768px) {
+    .project-gallery {
+        grid-template-columns: 1fr; /* Una sola columna en celulares */
+        width: 100%;
+    }
+}
+
+
+/* Fondo del Lightbox */
+.lightbox {
+    display: none; /* Oculto por defecto */
+    position: fixed;
+    z-index: 9999; /* Por encima de la navbar */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); 
+    justify-content: center;
+    align-items: center;
+    cursor: zoom-out;
+}
+
+/* La foto que se agranda */
+.lightbox-content {
+    max-width: 90%;
+    max-height: 85%;
+    object-fit: contain;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Animación de entrada suave */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Botón de cerrar (X) */
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 40px;
+    color: white;
+    font-size: 40px;
+    font-weight: 200;
+    cursor: pointer;
+}
+
+.main-image-container {
+    width: 100%;
+    height: auto;       /* Ya no forzamos altura fija */
+    aspect-ratio: auto; /* Anulamos el 16/9 para este caso */
+    overflow: hidden;
+    display: block;
+}
+
+.hero-project-image {
+    width: 100%;        /* Se estira hasta los bordes del espacio del video */
+    height: auto;       /* Crece proporcionalmente hacia abajo */
+    display: block;
+    object-fit: contain; /* Asegura que se vea toda la imagen */
+    cursor: zoom-in;
+}
+
+.carousel-container {
+    position: relative; /* Esto es el "ancla" para las flechas */
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    margin-bottom: 40px;
+}
+
+.carousel-slide {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-img {
+    width: 100%;       /* Ocupa el 100% del contenedor */
+    height: 100%;      /* Ocupa toda la altura del contenedor */
+    flex-shrink: 0;    /* VITAL: Evita que las fotos se "aprieten" para entrar todas juntas */
+    object-fit: contain; /* Cambia a 'contain' si prefieres ver la foto entera con bordes negros */
+    display: block;
+}
+
+/* Ajuste de flechas para que no se pierdan */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    border: none;
+    padding: 20px 15px;
+    cursor: pointer;
+    z-index: 100;
+    font-size: 24px;
+}
+
+.carousel-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Posición de la flecha izquierda */
+.prev {
+    left: 0;
+    border-radius: 0 5px 5px 0; /* Redondea solo las esquinas internas */
+}
+
+/* Posición de la flecha derecha */
+.next {
+    right: 0;
+    border-radius: 5px 0 0 5px; /* Redondea solo las esquinas internas */
+}
+
+@media (max-width: 768px) {
+    /* Contenedor del carrusel */
+    .carousel-container {
+        aspect-ratio: 1 / 1; /* Lo hacemos cuadrado en celu para que las fotos luzcan más */
+        margin: 15px 0;
+        border-radius: 0; /* Quitamos bordes redondeados para aprovechar el ancho total */
+    }
+
+    .carousel-img {
+        object-fit: cover; /* Asegura que llene el cuadrado sin dejar franjas negras */
+    }
+
+    /* Ajuste de flechas para dedos */
+    .carousel-btn {
+        padding: 15px 10px;
+        font-size: 20px;
+        background: rgba(0, 0, 0, 0.2); /* Más transparentes para no tapar la foto */
+        border-radius: 0;
+    }
+
+    /* Opcional: ocultar flechas en celu si querés que solo se deslice (aunque con el JS actual las necesitás) */
+    .prev { left: 0; }
+    .next { right: 0; }
+}

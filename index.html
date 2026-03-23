@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portfolio - flor gold</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <section id="landing" class="landing-page">
+        <div class="landing-content" onclick="entrarAlSitio()">
+            <h1>flor gold</h1>
+            <p>diseñadora audiovisual</p>
+        </div>
+    </section>
+    
+    <script>
+        // Si tienes el código en un archivo externo, asegúrate de que se cargue rápido
+        // Esta pequeña línea aquí previene el parpadeo antes de cargar el script.js completo
+        if (sessionStorage.getItem('entroAntes')) {
+            document.getElementById('landing').style.display = 'none';
+            document.body.classList.add('content-visible');
+        } else {
+            document.getElementById('landing').classList.add('landing-visible');
+        }
+    </script>
+    
+    <header class="navbar">
+        <div class="logo"><img src="img\icon.png" height="70px" width="70px"></div>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">proyectos</a></li>
+                <li><a href="exp.html">experimentos</a></li>
+                <li><a href="otros.html">trabajos</a></li>
+                <li><a href="info.html">contacto</a></li>
+            </ul>
+        </nav>
+        <div class="user-name">flor gold</div>
+    </header>
+
+    <main class="grid-container"> 
+        <div class="project-card" onclick="location.href='proyecto1.html';">
+            <img src="img\1-qveec.png" alt="quiero verte en el cielo">
+            <div class="project-info">
+                <h3>quiero verte en el cielo</h3>
+                <p>instalación audiovisual</p>
+            </div>
+        </div>
+
+<!-- acá estan todos los proyectos--> 
+
+        <div class="project-card" onclick="location.href='proyecto2.html';">
+            <img src="img\2-perif.png" alt="periferias">
+            <div class="project-info">
+                <h3>periferias</h3>
+                <p>instalación audiovisual</p>
+            </div>
+        </div>
+
+        <div class="project-card" onclick="location.href='proyecto3.html';">
+            <img src="img\3-augurio.png" alt="augurio">
+            <div class="project-info">
+                <h3>augurio</h3>
+                <p>documental expandido</p>
+            </div>
+        </div>
+
+        <div class="project-card" onclick="location.href='proyecto4.html';">
+            <img src="img\4-upfv.jpg" alt="un paisaje flotante vacio">
+            <div class="project-info">
+                <h3>un paisaje flotante vacío</h3>
+                <p>fanzine fotográfico</p>
+            </div>
+        </div>
+
+        <div class="project-card" onclick="location.href='proyecto5.html';">
+            <img src="img\5-futuros.png" alt="nuevas formas de vida del fin del mundo">
+            <div class="project-info">
+                <h3>nuevas formas de vida del fin del mundo</h3>
+                <p>ficción especulativa
+                    <br>
+                    animación 3D
+                </p>
+            </div>
+        </div>
+
+        <div class="project-card" onclick=" location.href='proyecto-idis.html';">
+            <img src="img/o3-idis.png" alt="IDIS">
+            <div class="project-info">
+                <h3>IDIS</h3>
+                <p>investigación</p>
+            </div>
+        </div>
+
+        <div class="project-card" onclick="location.href='proyecto12.html';">
+            <img src="img\12-suenos.png" alt="en los sueños no avnazo">
+            <div class="project-info">
+                <h3>en los sueños no avanzo</h3>
+                <p>animación mixed media</p>
+            </div>
+        </div>
+
+        <div class="project-card" onclick="location.href='proyecto8.html';">
+            <img src="img\8-silencios.jpg" alt="breve coleccion de silencios que me detuve a escuchar">
+            <div class="project-info">
+                <h3>breve colección de silencios que me detuve a escuchar</h3>
+                <p>fanzine fotográfico</p>
+            </div>
+        </div>
+
+        <div class="project-card" onclick="location.href='proyecto9.html';">
+            <img src="img\9-filt.jpg" alt="filtraciones">
+            <div class="project-info">
+                <h3>filtraciones</h3>
+                <p>serie fotográfica</p>
+            </div>
+        </div>
+
+        <div class="project-card" onclick="location.href='proyecto10.html';">
+            <img src="img\10-susana.jpg" alt="susana">
+            <div class="project-info">
+                <h3>susana</h3>
+                <p>serie fotográfica</p>
+            </div>
+        </div>
+
+        <div class="project-card" onclick="location.href='proyecto11.html';">
+            <img src="img\11-anteojos.jpg" alt="anteojos para salir a mirar">
+            <div class="project-info">
+                <h3>anteojos para salir a mirar</h3>
+                <p>obejto fotográfico</p>
+            </div>
+        </div>
+
+
+
+        <div class="project-card" onclick="location.href='proyecto13.html';">
+            <img src="img\13-oblivion.png" alt="oblivion">
+            <div class="project-info">
+                <h3>oblivion</h3>
+                <p>instalación audiovisual</p>
+            </div>
+        </div>
+
+        <div class="project-card" onclick=" location.href='proyecto-tft.html';">
+            <img src="img\o6-tft.png" alt="tricks for treats">
+            <div class="project-info">
+                <h3>tricks for treats</h3>
+                <p>videojuego</p>
+            </div>
+        </div>
+
+        <div class="project-card" onclick="location.href='proyecto14.html';">
+            <img src="img\14-mtxh.jpg" alt="mucho tiempo por hoy">
+            <div class="project-info">
+                <h3>mucho tiempo por hoy</h3>
+                <p>cortometraje</p>
+            </div>
+        </div>
+
+
+        </main>
+       
+
+</body>
+</html>
