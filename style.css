@@ -311,6 +311,28 @@ body:not(:has(#landing)) .grid-container {
     margin-bottom: 80px;
 }
 
+@media (max-width: 768px) {
+    /* El contenedor padre pasa de horizontal a vertical */
+    .project-hero {
+        display: flex;
+        flex-direction: column !important;
+        width: 100% !important;
+        padding: 15px; /* Margen para que el texto no toque los bordes */
+    }
+
+    /* La descripción ocupa todo el ancho */
+    .project-description {
+        width: 100% !important;
+        margin-bottom: 30px; /* Espacio antes de que empiece el video */
+    }
+
+    /* El video y el carrusel ocupan todo el ancho */
+    .project-video, 
+    .carousel-container {
+        width: 100% !important;
+    }
+}
+
 .project-description {
     flex: 1; /* 1 parte de espacio */
    /* position: sticky; /* Opcional: el texto se queda fijo mientras scrolleas el video */
