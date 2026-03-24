@@ -289,10 +289,17 @@ body:not(:has(#landing)) .grid-container {
 
 /* Responsivo para móviles */
 @media (max-width: 768px) {
-    .info-container {
-        flex-direction: column;
-        gap: 50px;
-        padding: 0 20px;
+/* 1. Reducir el espacio de la sección de contacto */
+    .contact-data  { /* Usá la clase que tenga el bloque de arriba */
+        margin-bottom: 20px !important; /* Achicamos el espacio de abajo */
+        padding-bottom: 0 !important;
+    }
+
+    /* 2. Reducir el espacio superior de la bio */
+    .info-container p { /* Usá la clase de tu texto de bio */
+        margin-top: 10px !important; /* Casi pegado al contacto */
+        line-height: 1.5; /* Para que el párrafo sea legible */
+        text-align: left;
     }
 }
 
