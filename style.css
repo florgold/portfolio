@@ -595,3 +595,72 @@ body:not(:has(#landing)) .grid-container {
     .prev { left: 0; }
     .next { right: 0; }
 }
+
+@media (max-width: 768px) {
+    /* Fuerza a que NADA se salga del borde del celular */
+    html, body {
+        width: 100% !important;
+        overflow-x: hidden; /* Corta cualquier cosa que intente sobrar a los costados */
+        position: relative;
+    }
+
+    /* Ajuste del contenedor principal */
+    .project-hero, .main-container, .container { 
+        width: 100% !important;
+        max-width: 100vw !important; /* vw = viewport width */
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        padding-left: 15px !important;  /* Margen interno para que el texto no toque el borde */
+        padding-right: 15px !important;
+        overflow: hidden; /* Evita que los hijos estiren al padre */
+    }
+
+    /* Aseguramos que la Navbar no sea la culpable */
+    nav, header {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    /* --- NUEVA NAVBAR RESPONSIVE DESDE CERO --- */
+
+nav, .navbar { 
+    width: 100% !important;
+    height: auto !important; /* Que crezca según el contenido */
+    padding: 20px 10px !important;
+    display: flex !important;
+    flex-direction: column !important; /* Logo arriba, links abajo */
+    align-items: center !important;
+    gap: 15px !important;
+    box-sizing: border-box !important;
+}
+
+/* El contenedor de los links (ul) */
+.nav-links, nav ul { 
+    display: flex !important;
+    flex-direction: row !important; /* Los mantenemos en fila... */
+    flex-wrap: wrap !important;     /* ...PERO si no entran, que bajen solos */
+    justify-content: center !important;
+    gap: 15px !important;           /* Espacio entre botones */
+    width: 100% !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+/* Los links individuales (a o li) */
+.nav-links li, nav ul li {
+    margin: 0 !important;
+}
+
+.nav-links a, nav ul a {
+    font-size: 0.9rem !important; /* Un poquito más chico para que entre mejor */
+    white-space: nowrap !important; /* Evita que una palabra se parta a la mitad */
+}
+
+/* Si tenés el nombre "flor gold" por separado */
+.logo, .site-name {
+    font-size: 1.2rem !important;
+    text-align: center !important;
+    width: 100% !important;
+}
+}
