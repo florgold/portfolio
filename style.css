@@ -222,7 +222,24 @@ body:not(:has(#landing)) .grid-container {
 /* Responsivo para celulares */
 @media (max-width: 768px) {
     .grid-container {
-        grid-template-columns: 1fr; /* 1 columna en móvil */
+        display: grid !important;
+        grid-template-columns: 1fr !important; /* Una sola columna */
+        gap: 30px !important;
+        padding: 0 20px !important;
+        width: 100% !important;
+    }
+    .project-card {
+        width: 100% !important;
+    }
+    /* Ajuste para que el texto de la landing no quede tan pegado a la derecha en el celu */
+    .landing-page {
+        justify-content: center !important; /* Lo centramos solo en el celu */
+        padding-right: 0 !important;
+    }
+
+    .landing-content {
+        text-align: center !important;
+        padding: 0 20px;
     }
 }
 
