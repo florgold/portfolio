@@ -651,14 +651,8 @@ body:not(:has(#landing)) .grid-container {
     order: 1 !important;
 }
 
-.site-name, .logo-text, .user-name { /* Usá la clase que tenga tu nombre */
-        order: 2 !important;
-        font-size: 1.2rem !important;
-        font-weight: bold;
-        text-align: center;
-        width: 100%;
-        margin-bottom: 15px !important;
-        display: block !important;
+.site-name, .logo-text, .user-name { /* Usá la clase de tu nombre */
+        display: none !important;
     }
 
 nav, .navbar { 
