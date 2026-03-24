@@ -176,18 +176,27 @@ body:not(:has(#landing)) .grid-container {
     filter: grayscale(0%);  /* Recupera color al pasar el mouse */
 }
 
+/* Esto separa las líneas de título y categoría */
+.project-info {
+    margin-top: 12px;    /* Espacio entre la imagen y el texto */
+    display: flex;
+    flex-direction: column; 
+    gap: 4px;            /* Espacio exacto entre el título y la descripción */
+    line-height: 1.4;    /* Altura de línea para que no se pisen las letras */
+    text-align: left;    /* Asegura que todo esté alineado a la izquierda */
+}
+
+.project-info h2, 
 .project-info h3 {
-    font-size: 16px;
-    margin: 1;
+    margin: 0;           /* Quitamos márgenes por defecto que puedan molestar */
+    font-size: 1.1rem;   /* Ajustalo a tu medida */
     font-weight: bold;
-    text-transform: none;
 }
 
 .project-info p {
-    font-size: 13px;
-    color: #aaa;
-    margin: 5px 0 0 0;
-    margin-top: -10px;
+    margin: 0;
+    font-size: 0.9rem;
+    color: #ccc;         /* Un gris claro para que la categoría sea secundaria */
 }
 
 /* Responsivo para celulares */
