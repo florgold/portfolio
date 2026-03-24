@@ -644,17 +644,6 @@ body:not(:has(#landing)) .grid-container {
 
     /* --- NUEVA NAVBAR RESPONSIVE DESDE CERO --- */
 
-nav, .navbar { 
-    width: 100% !important;
-    height: auto !important; /* Que crezca según el contenido */
-    padding: 20px 10px !important;
-    display: flex !important;
-    flex-direction: column !important; /* Logo arriba, links abajo */
-    align-items: center !important;
-    gap: 15px !important;
-    box-sizing: border-box !important;
-}
-/* Si tenés el nombre "flor gold" por separado */
 .logo {
     font-size: 1.2rem !important;
     text-align: center !important;
@@ -671,6 +660,19 @@ nav, .navbar {
         margin-bottom: 15px !important;
         display: block !important;
     }
+
+nav, .navbar { 
+    width: 100% !important;
+    height: auto !important; /* Que crezca según el contenido */
+    padding: 20px 10px !important;
+    display: flex !important;
+    flex-direction: column !important; /* Logo arriba, links abajo */
+    align-items: center !important;
+    gap: 15px !important;
+    box-sizing: border-box !important;
+}
+/* Si tenés el nombre "flor gold" por separado */
+
 
 
 /* El contenedor de los links (ul) */
