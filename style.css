@@ -1,3 +1,14 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+img, video {
+    max-width: 100%; /* Evita que las fotos se salgan de la pantalla */
+    height: auto;
+}
+
 .navbar, 
 .grid-container {
     opacity: 0;
@@ -190,12 +201,6 @@ body:not(:has(#landing)) .grid-container {
     margin-top: -10px;
 }
 
-/* Responsivo para celulares */
-@media (max-width: 768px) {
-    .grid-container {
-        grid-template-columns: 1fr; /* 1 columna en móvil */
-    }
-}
 
 /* --- Sección +INFO --- */
 
@@ -278,14 +283,6 @@ body:not(:has(#landing)) .grid-container {
     color: #888;
 }
 
-/* Responsivo para móviles */
-@media (max-width: 768px) {
-    .info-container {
-        flex-direction: column;
-        gap: 50px;
-        padding: 0 20px;
-    }
-}
 
 /* Contenedor Principal */
 .project-detail-container {
@@ -387,15 +384,6 @@ body:not(:has(#landing)) .grid-container {
     object-fit: cover;
 }
 
-/* Ajuste para móviles: si son muchas verticales, mejor que vuelvan a ser 2 y 2 */
-@media (max-width: 768px) {
-    .gallery-row {
-        flex-wrap: wrap; 
-    }
-    .gallery-row img {
-        width: calc(50% - 8px); /* 2 fotos por fila en celular */
-    }
-}
 
 .gallery-row-4 {
     display: flex;          /* Alinea las fotos de costado */
@@ -410,24 +398,6 @@ body:not(:has(#landing)) .grid-container {
     height: auto;           /* Mantiene la proporción vertical */
     margin-bottom: 0;       /* Quitamos el margen que usábamos en columnas */
     object-fit: cover;
-}
-
-/* Ajuste para móviles: si son muchas verticales, mejor que vuelvan a ser 2 y 2 */
-@media (max-width: 768px) {
-    .gallery-row-4 {
-        flex-wrap: wrap; 
-    }
-    .gallery-row-4 img {
-        width: calc(50% - 8px); /* 2 fotos por fila en celular */
-    }
-}
-
-/* Ajuste para que las fotos ocupen todo el ancho en móviles */
-@media (max-width: 768px) {
-    .project-gallery {
-        grid-template-columns: 1fr; /* Una sola columna en celulares */
-        width: 100%;
-    }
 }
 
 
@@ -540,8 +510,33 @@ body:not(:has(#landing)) .grid-container {
     border-radius: 5px 0 0 5px; /* Redondea solo las esquinas internas */
 }
 
+
+/*MEDIA*/
+/* --- BLOQUE RESPONSIVE UNIFICADO --- */
 @media (max-width: 768px) {
-    /* Contenedor del carrusel */
+    
+    /* 1. Ajuste General de Contenedores */
+    .project-hero {
+        flex-direction: column !important; /* Texto arriba, contenido abajo */
+        padding: 20px;
+        gap: 20px;
+    }
+
+    /* 2. Arreglo de la Navbar (para que no se amontone) */
+    nav, .navbar { /* Usá el nombre de tu clase de navegación */
+        flex-direction: column;
+        height: auto;
+        padding: 15px;
+        text-align: center;
+    }
+
+    nav ul, .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        padding: 10px 0;
+    }
+
+    /* 3. El Carrusel (lo que configuramos antes) */
     .carousel-container {
         aspect-ratio: 1 / 1; /* Lo hacemos cuadrado en celu para que las fotos luzcan más */
         margin: 15px 0;
@@ -560,7 +555,44 @@ body:not(:has(#landing)) .grid-container {
         border-radius: 0;
     }
 
-    /* Opcional: ocultar flechas en celu si querés que solo se deslice (aunque con el JS actual las necesitás) */
-    .prev { left: 0; }
-    .next { right: 0; }
+    /* 4. Galerías: De columnas a una sola fila vertical */
+    .project-gallery {
+        column-count: 1 !important; /* Si usabas columnas tipo Pinterest */
+        display: block;
+    }
+
+    .project-gallery img {
+        width: 100% !important;
+        margin-bottom: 15px;
+        height: auto;
+    }
+
+    /* 5. Si usabas fotos verticales en fila (gallery-row) */
+    .project-gallery.gallery-row {
+        flex-direction: column !important;
+        display: flex;
+    }
+
+    .project-gallery.gallery-row img {
+        width: 100% !important;
+    }
+
+    /* 6. El texto descriptivo */
+    .project-description {
+        width: 100% !important;
+        padding-right: 0 !important;
+    }
+
+    .gallery-row-4 {
+        flex-wrap: wrap; 
+    }
+    .gallery-row-4 img {
+        width: calc(50% - 8px); /* 2 fotos por fila en celular */
+    }
+
+    .info-container {
+    flex-direction: column;
+    gap: 50px;
+    padding: 0 20px;
+    }
 }
