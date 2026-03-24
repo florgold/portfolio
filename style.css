@@ -654,6 +654,24 @@ nav, .navbar {
     gap: 15px !important;
     box-sizing: border-box !important;
 }
+/* Si tenés el nombre "flor gold" por separado */
+.logo {
+    font-size: 1.2rem !important;
+    text-align: center !important;
+    width: 100% !important;
+    order: 1 !important;
+}
+
+.site-name, .logo-text, .user-name { /* Usá la clase que tenga tu nombre */
+        order: 2 !important;
+        font-size: 1.2rem !important;
+        font-weight: bold;
+        text-align: center;
+        width: 100%;
+        margin-bottom: 15px !important;
+        display: block !important;
+    }
+
 
 /* El contenedor de los links (ul) */
 .nav-links, nav ul { 
@@ -665,6 +683,7 @@ nav, .navbar {
     width: 100% !important;
     padding: 0 !important;
     list-style: none !important;
+    order: 3 !important;
 }
 
 /* Los links individuales (a o li) */
@@ -677,10 +696,5 @@ nav, .navbar {
     white-space: nowrap !important; /* Evita que una palabra se parta a la mitad */
 }
 
-/* Si tenés el nombre "flor gold" por separado */
-.logo, .site-name {
-    font-size: 1.2rem !important;
-    text-align: center !important;
-    width: 100% !important;
-}
+
 }
