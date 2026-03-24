@@ -1,49 +1,63 @@
-.navbar, 
-.grid-container {
-    opacity: 0;
-    transition: opacity 1s ease-in; /* Para que aparezca suavemente */
-}
-
-/* Cuando la landing ya no esté, mostramos el contenido */
-.content-visible .navbar,
-.content-visible .grid-container {
-    opacity: 1;
-}
-
-/* La landing empieza totalmente invisible para evitar el parpadeo */
-.landing-page {
-    display: none; 
-    opacity: 0;
-}
-
-/* Esta clase la usaremos para mostrarla solo cuando sea necesario */
-.landing-visible {
-    display: flex !important;
-    opacity: 1;
-}
-
-.landing-page {
-    position: fixed; /* Cubre toda la pantalla y se queda fija */
-    top: 0;
-    left: 0;
+/* Bloqueo visual de barras en toda la estructura */
+html, body {
+    margin: 0;
+    padding: 0;
     width: 100%;
-    height: 100vh;
-    background-image: url('img/landing.jpg'); /* Reemplaza con tu archivo */
-    background-size: cover;
-    background-position: center;
-    display: flex;
+    overflow-x: hidden; /* Evita el scroll horizontal */
+    -ms-overflow-style: none;  /* IE y Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Para Chrome, Safari y Opera */
+html::-webkit-scrollbar, 
+body::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+
+/* --- LANDING: SECCIÓN INICIAL --- */
+.landing-page {
+    display: flex !important; /* Que se vea siempre al inicio */
     justify-content: center;
     align-items: center;
-    z-index: 9999; /* Asegura que esté por encima de todo */
-    cursor: pointer;
-    transition: opacity 0.8s ease, visibility 0.8s;
+    opacity: 1;               /* Que empiece totalmente opaca */
+    position: relative;       /* IMPORTANTE: relative para que el scroll funcione */
+    width: 100%;
+    height: 100vh;
+    background-image: url('img/landing.png'); /* Verificá que el nombre sea este */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Esto hace que la foto se quede quieta mientras el texto sube */
+    z-index: 10;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    transition: transform 0.1s ease-out; /* Para que el zoom sea fluido */
 }
 
 .landing-content {
-    text-align: left; /* Alineación como en tu imagen */
+    text-align: right; /* Alineación como en tu imagen */
+    z-index: 11;
     color: white;
     padding-left: 30%;
 }
+
+/* --- CONTENIDO POST-LANDING --- */
+.grid-container, .navbar {
+    opacity: 1 !important; /* Que no desaparezcan */
+    display: flex !important;
+}
+
+/* Si quieres que la Nav aparezca fija después */
+.navbar {
+    position: relative;
+    top: 0;
+    background-color: #151414;
+    z-index: 100;
+}
+
+
 
 .landing-content h1 {
     font-size: 48px;
@@ -71,11 +85,6 @@
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-/* Clase para ocultar la portada con JS */
-.landing-hidden {
-    opacity: 0;
-    visibility: hidden;
-}
 
 /* Configuración General */
 body {
@@ -83,7 +92,7 @@ body {
     color: #fff;
     font-family: 'Geist', sans-serif;
     margin: 0;
-    padding: 0 40px;
+    padding: 0;
 }
 
 /* Si NO hay landing en la página, el contenido debe verse siempre */
@@ -92,12 +101,19 @@ body:not(:has(#landing)) .grid-container {
     opacity: 1;
 }
 
+/* El aire lo damos acá */
+.navbar, .grid-container, .info-container {
+    padding-left: 40px;
+    padding-right: 40px;
+    box-sizing: border-box;
+}
+
 /* Navegación Superior */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px 0;
+    padding: 30px 40px;
     /* Asegúrate de que la tipografía soporte bold y regular */
     font-family: 'Geist', sans-serif; 
 }
@@ -144,17 +160,21 @@ body:not(:has(#landing)) .grid-container {
     text-transform: none; /* Mantiene la estética de la imagen */
 }
 
-/* Cuadrícula de Proyectos */
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
-    column-gap: 40px;    /* Espacio entre columnas */
+    display: grid !important; /* Forzamos que vuelva a ser Grid */
+    grid-template-columns: repeat(3, 1fr) !important; /* 3 columnas como antes */
+    column-gap: 40px;
     row-gap: 90px;
     margin-top: 50px;
     margin-bottom: 100px;
+    opacity: 1 !important;
+    width: 100%;
 }
 
+/* Aseguramos que las tarjetas no hereden el flex del intento anterior */
 .project-card {
+    display: block !important;
+    width: 100%;
     cursor: pointer;
     transition: opacity 0.3s ease;
 }

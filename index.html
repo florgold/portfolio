@@ -12,6 +12,7 @@
 </head>
 
 <body>
+
     <section id="landing" class="landing-page">
         <div class="landing-content" onclick="entrarAlSitio()">
             <h1>flor gold</h1>
@@ -30,11 +31,11 @@
         }
     </script>
     
-    <header class="navbar">
+    <header id="galeria" class="navbar">
         <div class="logo"><img src="img\icon.png" height="70px" width="70px"></div>
         <nav>
             <ul>
-                <li><a href="index.html" class="active">proyectos</a></li>
+                <li><a href="index.html#galeria" class="active">proyectos</a></li>
                 <li><a href="exp.html">experimentos</a></li>
                 <li><a href="otros.html">trabajos</a></li>
                 <li><a href="info.html">contacto</a></li>
@@ -162,10 +163,48 @@
                 <p>cortometraje</p>
             </div>
         </div>
-
-
         </main>
-       
+<script>
+// Asegura que al recargar la página siempre empiece arriba
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+};
+
+window.addEventListener('scroll', function() {
+    const landing = document.querySelector('.landing-page');
+    if (!landing) return; // Si no encuentra la landing, no hace nada
+
+    const scrollPos = window.scrollY; // Cuánto bajó el usuario
+    const windowHeight = window.innerHeight; // El alto de la pantalla
+
+    // --- EFECTO FADE ---
+    // La opacidad va de 1 a 0. Se vuelve invisible al llegar al 80% de la pantalla.
+    let opacity = 1 - (scrollPos / (windowHeight * 0.8));
+    
+    if (opacity < 0) opacity = 0;
+    if (opacity > 1) opacity = 1;
+
+    landing.style.opacity = opacity;
+
+    // --- EFECTO ZOOM ---
+    // 1 es el tamaño original. 1.1 sería un 10% de aumento.
+    // El valor 0.0003 es la intensidad, podés subirlo a 0.0005 si querés más zoom.
+    let scale = 1 + (scrollPos * 0.0003);
+    landing.style.transform = `scale(${scale})`;
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Si entramos con el hash #galeria
+    if (window.location.hash === '#galeria') {
+        const landing = document.querySelector('.landing-page');
+        if (landing) {
+            landing.style.display = 'none';
+            landing.style.opacity = '0';
+        }
+    }
+});
+
+</script>
 
 </body>
 </html>
