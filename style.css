@@ -644,17 +644,6 @@ body:not(:has(#landing)) .grid-container {
 
     /* --- NUEVA NAVBAR RESPONSIVE DESDE CERO --- */
 
-.logo {
-    font-size: 1.2rem !important;
-    text-align: center !important;
-    width: 100% !important;
-    order: 1 !important;
-}
-
-.site-name, .logo-text, .user-name { /* Usá la clase de tu nombre */
-        display: none !important;
-    }
-
 nav, .navbar { 
     width: 100% !important;
     height: auto !important; /* Que crezca según el contenido */
@@ -679,7 +668,6 @@ nav, .navbar {
     width: 100% !important;
     padding: 0 !important;
     list-style: none !important;
-    order: 3 !important;
 }
 
 /* Los links individuales (a o li) */
@@ -692,5 +680,13 @@ nav, .navbar {
     white-space: nowrap !important; /* Evita que una palabra se parta a la mitad */
 }
 
+.logo {
+    font-size: 1.2rem !important;
+    text-align: center !important;
+    width: 100% !important;
+}
 
+.site-name, .logo-text, .user-name { /* Usá la clase de tu nombre */
+        display: none !important;
+    }
 }
