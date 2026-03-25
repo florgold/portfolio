@@ -258,6 +258,9 @@ body:not(:has(#landing)) .grid-container {
         text-align: center !important;
         padding: 0 20px;
     }
+    .landing-page::before {
+        opacity: 0.75 !important; /* 1 es total, 0.6 es un 60%. Ajustalo a tu gusto */
+    }
 }
 
 /* --- Sección +INFO --- */
