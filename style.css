@@ -18,27 +18,46 @@ body::-webkit-scrollbar {
 
 /* --- LANDING: SECCIÓN INICIAL --- */
 .landing-page {
-    display: flex !important; /* Que se vea siempre al inicio */
-    justify-content: center;
+    display: flex !important;
+    justify-content: center; /* Centrado base para mobile */
     align-items: center;
-    opacity: 1;               /* Que empiece totalmente opaca */
-    position: relative;       /* IMPORTANTE: relative para que el scroll funcione */
     width: 100%;
     height: 100vh;
-    background-image: url('img/landing.png'); /* Verificá que el nombre sea este */
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed; /* Esto hace que la foto se quede quieta mientras el texto sube */
+    position: relative; /* Importante para que el contenido flote encima */
+    overflow: hidden; /* CRÍTICO: Corta el zoom para que no salgan barras */
+    background-color: #151414; /* Fondo oscuro para el fade */
     z-index: 10;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    transition: transform 0.1s ease-out; /* Para que el zoom sea fluido */
+}
+
+/* Usamos un pseudo-elemento para que el zoom no mueva el texto */
+.landing-page::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('img/landing.png'); /* Revisa la ruta */
+    background-size: cover;
+    background-position: center;
+    
+    /* BORRAMOS background-attachment: fixed; */
+    
+    /* ESTADO INICIAL SIN SALTO: */
+    transform: scale(1); /* Empezamos en tamaño real */
+    opacity: 1; /* Empezamos visible */
+    
+    /* Suavizamos CUALQUIER cambio de tamaño o transparencia */
+    transition: transform 0.1s ease-out, opacity 0.1s ease-out;
+    z-index: 1; /* Detrás del texto */
 }
 
 .landing-content {
+    position: relative;
     text-align: right; /* Alineación como en tu imagen */
-    z-index: 11;
+    z-index: 2;
     color: white;
     padding-left: 30%;
 }
@@ -56,8 +75,6 @@ body::-webkit-scrollbar {
     background-color: #151414;
     z-index: 100;
 }
-
-
 
 .landing-content h1 {
     font-size: 48px;

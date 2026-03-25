@@ -165,32 +165,47 @@
         </div>
         </main>
 <script>
-// Asegura que al recargar la página siempre empiece arriba
+// Forzamos que la página empiece arriba de todo al recargar
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);
 };
 
 window.addEventListener('scroll', function() {
-    const landing = document.querySelector('.landing-page');
-    if (!landing) return; // Si no encuentra la landing, no hace nada
-
-    const scrollPos = window.scrollY; // Cuánto bajó el usuario
-    const windowHeight = window.innerHeight; // El alto de la pantalla
-
-    // --- EFECTO FADE ---
-    // La opacidad va de 1 a 0. Se vuelve invisible al llegar al 80% de la pantalla.
-    let opacity = 1 - (scrollPos / (windowHeight * 0.8));
+    // Apuntamos específicamente a la capa de imagen ::before
+    // Nota: JS no puede seleccionar ::before directamente, así que
+    // aplicamos el estilo al contenedor y el CSS lo hereda o lo usamos
+    // para mover la propiedad transform-origin.
     
-    if (opacity < 0) opacity = 0;
-    if (opacity > 1) opacity = 1;
+    // Una forma más limpia: aplicamos los estilos directamente al
+    // contenedor `.landing-page`, pero nos aseguramos de que el CSS 
+    // del pseudo-elemento esté bien configurado.
+    
+    const landingContainer = document.querySelector('.landing-page');
+    if (!landingContainer) return;
 
-    landing.style.opacity = opacity;
+    const scrollPos = window.scrollY;
+    const windowHeight = window.innerHeight;
 
-    // --- EFECTO ZOOM ---
-    // 1 es el tamaño original. 1.1 sería un 10% de aumento.
-    // El valor 0.0003 es la intensidad, podés subirlo a 0.0005 si querés más zoom.
-    let scale = 1 + (scrollPos * 0.0003);
-    landing.style.transform = `scale(${scale})`;
+    // Solo ejecutamos si estamos viendo la landing
+    if (scrollPos <= windowHeight) {
+        
+        // --- EFECTO FADE SUAVE ---
+        // La opacidad va de 1 a 0. Se apaga al 80% del scroll de pantalla.
+        let opacity = 1 - (scrollPos / (windowHeight * 0.8));
+        if (opacity < 0) opacity = 0;
+        if (opacity > 1) opacity = 1;
+
+        // --- EFECTO ZOOM SIN SALTO ---
+        // Empezamos en 1 (tamaño real). El zoom es sutil.
+        // Si quieres más zoom, sube 0.0003 a 0.0005.
+        let scale = 1 + (scrollPos * 0.0003);
+
+        // APLICAMOS LOS ESTILOS AL CONTENEDOR
+        // Para que esto funcione sin mover el texto, el texto debe tener z-index: 2
+        // y la imagen z-index: 1 en el CSS.
+        landingContainer.style.opacity = opacity;
+        landingContainer.style.transform = `scale(${scale})`;
+    }
 });
 
 document.addEventListener('DOMContentLoaded', function() {
