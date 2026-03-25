@@ -250,13 +250,23 @@ body:not(:has(#landing)) .grid-container {
     }
     /* Ajuste para que el texto de la landing no quede tan pegado a la derecha en el celu */
     .landing-page {
-        justify-content: center !important; /* Lo centramos solo en el celu */
-        padding-right: 0 !important;
+        justify-content: flex-end !important; /* Lo lleva al borde derecho */
+        padding-right: 20px !important;       /* Margen de seguridad para que no toque el borde */
+        padding-left: 30% !important;        /* Empuja desde la izquierda */
     }
 
     .landing-content {
-        text-align: center !important;
+        text-align: right !important;
         padding: 0 20px;
+    }
+    .landing-content h1 {
+        font-size: 24px !important; /* Ajustá este número si lo querés más chico */
+        margin-bottom: 5px;
+    }
+
+    .landing-content p {
+        font-size: 14px !important; /* El subtítulo más pequeño */
+        letter-spacing: 1px;
     }
 }
 
