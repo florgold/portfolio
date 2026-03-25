@@ -25,7 +25,7 @@ body::-webkit-scrollbar {
     height: 100vh;
     position: relative; /* Importante para que el contenido flote encima */
     overflow: hidden; /* CRÍTICO: Corta el zoom para que no salgan barras */
-    background-color: #151414; /* Fondo oscuro para el fade */
+    background-color: #000; /* Fondo oscuro para el fade */
     z-index: 10;
     margin: 0;
     padding: 0;
@@ -72,7 +72,7 @@ body::-webkit-scrollbar {
 .navbar {
     position: relative;
     top: 0;
-    background-color: #151414;
+    background-color: #000;
     z-index: 100;
 }
 
@@ -105,7 +105,7 @@ body::-webkit-scrollbar {
 
 /* Configuración General */
 body {
-    background-color: #151414;
+    background-color: #000;
     color: #fff;
     font-family: 'Geist', sans-serif;
     margin: 0;
