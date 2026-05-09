@@ -2,225 +2,711 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <link rel="icon" type="image/png" href="img/favicon.png">
-    <title>portfolio - flor gold</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>florencia gold</title>
     <script src="script.js"></script>
+    <link rel="icon" type="image/png" href="img/favicon.png">
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
-    <section id="landing" class="landing-page">
-        <div class="landing-content" onclick="entrarAlSitio()">
-            <h1>flor gold</h1>
-            <p>diseñadora audiovisual</p>
-        </div>
-    </section>
-    
-    <script>
-        // Si tienes el código en un archivo externo, asegúrate de que se cargue rápido
-        // Esta pequeña línea aquí previene el parpadeo antes de cargar el script.js completo
-        if (sessionStorage.getItem('entroAntes')) {
-            document.getElementById('landing').style.display = 'none';
-            document.body.classList.add('content-visible');
-        } else {
-            document.getElementById('landing').classList.add('landing-visible');
-        }
-    </script>
-    
-    <header id="galeria" class="navbar">
-        <div class="logo"><img src="img\icon.png" height="70px" width="70px"></div>
-        <nav>
-            <ul>
-                <li><a href="index.html#galeria" class="active">proyectos</a></li>
-                <li><a href="exp.html">experimentos</a></li>
-                <li><a href="otros.html">trabajos</a></li>
-                <li><a href="info.html">contacto</a></li>
+    <div class="main-wrapper">
+        
+        <nav class="sidebar">
+            <h1 class="logo">
+                <a href="#" id="logo-home">florencia gold</a>
+            </h1>
+            <ul class="categories-menu">
+                <li><a href="#" class="category-link" data-category="instalaciones">instalación</a></li>
+                <li><a href="#" class="category-link" data-category="audiovisual">audiovisual</a></li>
+                <li><a href="#" class="category-link" data-category="fotografía">fotografía</a></li>
+                <li><a href="#" class="category-link" data-category="animación">animación</a></li>
+                <li><a href="#" class="category-link" data-category="diseño">diseño</a></li>
+                <li><a href="#" class="category-link" data-category="sonido">sonido</a></li>
+                <li class="menu-divider"></li>
+                <li><a href="#" class="category-link" data-category="contacto">bio / contacto</a></li>
             </ul>
         </nav>
-        <div class="user-name">flor gold</div>
-    </header>
 
-    <main class="grid-container"> 
-        <div class="project-card" onclick="location.href='proyecto1.html';">
-            <img src="img\1-qveec.png" alt="quiero verte en el cielo">
-            <div class="project-info">
-                <h3>quiero verte en el cielo</h3>
-                <p>instalación audiovisual</p>
-            </div>
-        </div>
+        <main class="content-area">
+            <section id="landing" class="content-section active">
+                <div class="land-img-container">
+                    <img src="img/flores-gif.gif" id="landing-foto" class="img-scroll" alt="florencia gold">
+                </div>
+            </section>
 
-<!-- acá estan todos los proyectos--> 
 
-        <div class="project-card" onclick="location.href='proyecto2.html';">
-            <img src="img\2-perif.png" alt="periferias">
-            <div class="project-info">
-                <h3>periferias</h3>
-                <p>instalación audiovisual</p>
-            </div>
-        </div>
 
-        <div class="project-card" onclick="location.href='proyecto3.html';">
-            <img src="img\3-augurio.png" alt="augurio">
-            <div class="project-info">
-                <h3>augurio</h3>
-                <p>documental expandido</p>
-            </div>
-        </div>
-
-        <div class="project-card" onclick="location.href='proyecto4.html';">
-            <img src="img\4-upfv.jpg" alt="un paisaje flotante vacio">
-            <div class="project-info">
-                <h3>un paisaje flotante vacío</h3>
-                <p>fanzine fotográfico</p>
-            </div>
-        </div>
-
-        <div class="project-card" onclick="location.href='proyecto5.html';">
-            <img src="img\5-futuros.png" alt="nuevas formas de vida del fin del mundo">
-            <div class="project-info">
-                <h3>nuevas formas de vida del fin del mundo</h3>
-                <p>ficción especulativa
-                    <br>
-                    animación 3D
+            <section id="instalaciones" class="content-section">
+                <div class="project-header">
+                    <h2>quiero verte en el cielo</h2>
+                    <h3>2025</h3>
+                    <p>Quiero verte en el cielo es una instalación audiovisual nacida del deseo de reencontrarse con un fantasma.
+                        <br><br>El proyecto surge de un regalo póstumo: antes de ser fantasmas, mis abuelos compraron un rollo de película de 16mm y, por algún motivo, nunca la filmaron. Yo la encontré demasiado tarde, y debido a su antigüedad y mal estado de conservación, las imágenes que filmé en esa película desaparecieron.
+                        Quiero verte en el cielo es, entonces, un intento de reconstruir sobre ese mismo soporte fílmico, con los medios que tengo a mi alcance, aquella película fantasma.
+                        La instalación consiste en la proyección en loop de una película de 16mm hecha a mano. La película tiene una duración de 1 minuto y se proyecta en loop sobre una pared, corriendo a través de un sistema de poleas ubicado en el techo.
+                        <br><br>El proyecto fue presentado en la muestra MAGMA, en noviembre de 2025, en cheLA.
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="video-container img-scroll">
+                       <iframe src="https://www.youtube.com/embed/5Y22fr1zams?si=pQ15Pytz3J-1iZC8&amp" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                       </iframe>
+                    </div>
+                    <div class="img-scroll">
+                        <img src="img/qveec_img_1.png" class="img-scroll" alt="Descripción"> 
+                        <br>                       
+                        <img src="img/qveec_img_2.png" class="img-scroll" alt="Descripción"> 
+                        <br>                       
+                        <img src="img/qveec_img_3.png" class="img-scroll" alt="Descripción"> 
+                        <br>                       
+                        <img src="img/qveec_img_4.png" class="img-scroll" alt="Descripción"> 
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="project-header">
+                    <h2>periferias</h2>
+                    <h3>2023 - realizado junto a Wanda Acevedo y Lorea Grondona</h3>
+                    <p>Periferias es una instalación audiovisual que introduce al usuario en un ecosistema situado en las periferias de una ciudad ficticia, donde confluyen naturaleza y basura informacional. El espacio es habitado por diversos seres vivos que nacen de la sobrecarga de datos. Estas nuevas formas de vida buscan adaptarse a las dificultades del presente generando entornos más habitables mediante la hibridación de materialidades tanto naturales como tecnológicas.
+                    La instalación consta de dos videos interconectados en los que se construye el mundo ficcional mediante la aparición de diferentes escenas de índole observacional donde se desarrollan las particularidades morfológicas de diferentes personajes y entornos.
+                        <br><br>El proyecto fue presentado en la muestra MAGMA, en diciembre de 2023, en cheLA.
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="video-container img-scroll">
+                       <iframe src="https://www.youtube.com/embed/x4zR10vzW4E?si=xS0X4U0aTmiQ3ST1" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                       </iframe>
+                    </div>
+                    <div class="img-scroll">
+                        <img src="img/perif_2.png" class="img-scroll" alt="Descripción"> 
+                        <br>                       
+                        <img src="img/perif_4.png" class="img-scroll" alt="Descripción">
+                        <br>                       
+                        <img src="img/perif_6.png" class="img-scroll" alt="Descripción">
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="project-header">
+                    <h2>oblivion</h2>
+                    <h3>2022 - realizado junto a Rocío Caballero, Micaela Barrionuevo, Florencia Moreno y Micaela Alvarez.</h3>
+                    <p>Oblivion es una instalación interactiva que surgió a partir de una investigación sobre las fallas de la memoria y los procesos de distorsión de los recuerdos. El usuario puede navegar a través de imagenes proyectadas sobre una enredadera que se entremezclan y se difuminan, crear su propio recorrido y cuestionar la fiabilidad de sus recuerdos.
+                    <br><br>El proyecto fue presentado en la muestra MAGMA, en diciembre de 2022, en cheLA.
                 </p>
-            </div>
-        </div>
-
-        <div class="project-card" onclick=" location.href='proyecto-idis.html';">
-            <img src="img/o3-idis.png" alt="IDIS">
-            <div class="project-info">
-                <h3>IDIS</h3>
-                <p>investigación</p>
-            </div>
-        </div>
-
-        <div class="project-card" onclick="location.href='proyecto12.html';">
-            <img src="img\12-suenos.png" alt="en los sueños no avnazo">
-            <div class="project-info">
-                <h3>en los sueños no avanzo</h3>
-                <p>animación mixed media</p>
-            </div>
-        </div>
-
-        <div class="project-card" onclick="location.href='proyecto8.html';">
-            <img src="img\8-silencios.jpg" alt="breve coleccion de silencios que me detuve a escuchar">
-            <div class="project-info">
-                <h3>breve colección de silencios que me detuve a escuchar</h3>
-                <p>fanzine fotográfico</p>
-            </div>
-        </div>
-
-        <div class="project-card" onclick="location.href='proyecto9.html';">
-            <img src="img\9-filt.jpg" alt="filtraciones">
-            <div class="project-info">
-                <h3>filtraciones</h3>
-                <p>serie fotográfica</p>
-            </div>
-        </div>
-
-        <div class="project-card" onclick="location.href='proyecto10.html';">
-            <img src="img\10-susana.jpg" alt="susana">
-            <div class="project-info">
-                <h3>susana</h3>
-                <p>serie fotográfica</p>
-            </div>
-        </div>
-
-        <div class="project-card" onclick="location.href='proyecto11.html';">
-            <img src="img\11-anteojos.jpg" alt="anteojos para salir a mirar">
-            <div class="project-info">
-                <h3>anteojos para salir a mirar</h3>
-                <p>obejto fotográfico</p>
-            </div>
-        </div>
+                </div>
+                <div class="project-gallery">
+                    <div class="video-container img-scroll">
+                       <iframe src="https://www.youtube.com/embed/MjEefCESqLY?si=ap0ymvhUWZVJLGLh" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                       </iframe>
+                    </div>
+                    <div class="img-scroll">
+                        <img src="img/obliv_1.png" class="img-scroll" alt="Descripción"> 
+                        <br>                       
+                        <img src="img/obliv_2.jfif" class="img-scroll" alt="Descripción">
+                    </div>
+                </div>
+            </section>
 
 
 
-        <div class="project-card" onclick="location.href='proyecto13.html';">
-            <img src="img\13-oblivion.png" alt="oblivion">
-            <div class="project-info">
-                <h3>oblivion</h3>
-                <p>instalación audiovisual</p>
-            </div>
-        </div>
+            <section id="audiovisual" class="content-section">
+                <div class="project-header">
+                    <h2>augurio</h2>
+                    <h3>2022 - realizado junto a Rocío Caballero, Micaela Barrionuevo, Florencia Moreno y Micaela Alvarez.</h3>
+                    <p>Augurio es una instalación documental que nació a partir de un viaje a Las Toninas, un pueblo en la costa argentina cuya desaparición, a causa de la subida del mar, parece inevitable.
+                        <br><br>El proyecto surgió a partir de interrogantes acerca del lugar que le queda a los recuerdos en un espacio que progresivamente desaparece, y de una intención de materializar esa memoria en el sonido y en la figura del altar, pensando al monumento como documento.
+                        <br><br>Fue presentado en su versión monocanal en la muestra MAGMA, en diciembre de 2022, en cheLA. También fue seleccionado para proyectarse dentro del BAFICI en abril de 2023, como parte de PantallaUBA. 
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="video-container img-scroll">
+                       <iframe src="https://www.youtube.com/embed/R7MHUq5yHXM?si=ihrRes2Mb-Qj7U5q" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                       </iframe>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="project-header">
+                    <h2>pequeños fragmentos del paraíso</h2>
+                    <h3>2025</h3>
+                    <p>
+                        Un experimento, un testimonio, un souvenir. Encontré una filmadora super 8 que había sido de mi abuelo y me la llevé de viaje para registrar y experimentar con nuevos formatos. Filmado en muchos lugares distintos, en enero/febrero de 2025.
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="video-container img-scroll">
+                       <iframe src="https://www.youtube.com/embed/fP7a8iMptOY?si=Dg8Jryo0Fwk-qqVV" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                       </iframe>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="project-header">
+                    <h2>cine sin lente</h2>
+                    <h3>2022 - 2023</h3>
+                    <p>
+                      Pruebas con videos estenopeicos :o un día sentí la necesidad de ver si podía hacer que mi cámara digital funcionase como estenopeica y esto es lo que resultó de ese experimento.
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="video-container img-scroll">
+                       <iframe src="https://www.youtube.com/embed/_wpHraCfa_E?si=YGrZWrVlj-O2Bw20" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                       </iframe>
+                    </div>
+                    <div class="video-container img-scroll">
+                       <iframe src="https://www.youtube.com/embed/oLG94E6hPqw?si=ySiflhXsKv-dDDzb" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                       </iframe>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="project-header">
+                    <h2>por acá caminó jesús (si es que existió)</h2>
+                    <h3>2023</h3>
+                    <p>
+                    Imágenes empobrecidas y recuerdos de un viaje muy genial. Experimeto de disección y fragmentación del video digital. Secuencias descompustas y recompuestas, porque asi se recuerda. Mucho cariño y mucha nostalgia.
+                    <br><br> Realizado en Israel en enero 2023.
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="video-container img-scroll">
+                       <iframe src="https://www.youtube.com/embed/ET40mHFOenQ?si=lVQhcpQ4KJt77pZg" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                       </iframe>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="project-header">
+                    <h2>mucho tiempo por hoy</h2>
+                    <h3>2020 - realizado junto a Corina Safar, Inti Patrón, y Camila Ruggiero.</h3>
+                    <p>Tiempo contenido, recuerdo entremezclado. La nostalgia, la morfología del recuerdo, el relato de un duelo. La re-significación de la imagen en función de la palabra, del registro en función del homenaje, de la evocación, de la necesidad de dar forma al sentimiento.
+                    <br><br> El proyecto fue creado durante la cuarentena en el marco de la cursada de Narrativas Audiovisuales (Cátedra Acosta - FADU UBA) y fue seleccionado para formar parte de Pantalla UBA en el 36° Festival de Cine de Mar del Plata.
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="video-container img-scroll">
+                       <iframe src="https://www.youtube.com/embed/YOduA7BPAD8?si=PDB0p_JNhsng37nx" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                       </iframe>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="project-header">
+                    <h2>registro audiovisual</h2>
+                    <h3>2025</h3>
+                    <p>
+                    Resgistro de obra en las exhibiciones del artista Joaquín Fargas.
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="video-container img-scroll">
+                       <iframe src="https://www.youtube.com/embed/Z__i59-uBtQ?si=6FhKb4UK4SbHQ0Vk" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                       </iframe>
+                    </div>
+                    <div class="video-container img-scroll">
+                       <iframe src="https://www.youtube.com/embed/66pPrdk6LZM?si=LSaAiwgMDol_z57A" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                       </iframe>
+                    </div>
+                    <div class="video-container img-scroll">
+                       <iframe src="https://www.youtube.com/embed/OiqwqaecN44?si=vSEmEgsDj4Aag6GN" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                       </iframe>
+                    </div>
+                </div>
+            </section>
+            
 
-        <div class="project-card" onclick=" location.href='proyecto-tft.html';">
-            <img src="img\o6-tft.png" alt="tricks for treats">
-            <div class="project-info">
-                <h3>tricks for treats</h3>
-                <p>videojuego</p>
-            </div>
-        </div>
 
-        <div class="project-card" onclick="location.href='proyecto14.html';">
-            <img src="img\14-mtxh.jpg" alt="mucho tiempo por hoy">
-            <div class="project-info">
-                <h3>mucho tiempo por hoy</h3>
-                <p>cortometraje</p>
-            </div>
-        </div>
+
+            <section id="diseño" class="content-section">
+                <div class="project-header">
+                    <h2>muestra magma</h2>
+                    <h3>2023 - 2025</h3>
+                    <p><a href="https://www.instagram.com/muestramagma/" target="_blank" class="cv-link">Magma</a>
+                         es una muestra donde se exhibe la produccion anual de proyectos audiovisuales la cátedra Campos-Trilnick (FADU UBA). Es una muestra autogestiva, llevada a cabo por los mismos estudintes que exhiben allí sus proyectos, de cuya organización general formo parte desde el año 2022.            
+                        <br><br>Formé parte del equipo de diseño gráfico de las ediciones de 2023 y 2025.
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="img-gallery">                   
+                        <img src="img/magma4.png" class="img-scroll" alt="Descripción">
+                        <img src="img/magma-3d.gif" class="img-scroll" alt="Descripción">                                       
+                        <img src="img/magma1.png" class="img-scroll" alt="Descripción">
+                        <img src="img/magma2.png" class="img-scroll" alt="Descripción">                       
+                        <img src="img/magma3.png" class="img-scroll" alt="Descripción">
+                        
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="project-header">
+                    <h2>no me gusta dormir con nadie</h2>
+                    <h3>2025</h3>
+                    <p>Diseño y fotografía de tapa para el disco "No me gusta dormir con nadie" de Julián Esion, asi como para los singles "Todo se rompió" y "Cuento de Fantasía."
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="img-scroll">
+                        <img src="img/nmgdcn.png" class="img-scroll" alt="Descripción"> 
+                    </div>
+                    <div class="img-grid-2">
+                        <img src="img/portada-1.png" class="img-scroll" alt="Descripción">                      
+                        <img src="img/portada-2.png" class="img-scroll" alt="Descripción">
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="project-header">
+                    <h2>archivo personal</h2>
+                    <h3>2021 - 2026</h3>
+                    <p> Diseño de posters para artistas y pelis que me encantan. Prácticas, experimentos y homenajes que no quiero que se pudran en un disco.
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="img-gallery">                   
+                        <img src="img/dg1.png" class="img-scroll" alt="Descripción">
+                        <img src="img/dg5.jpg" class="img-scroll" alt="Descripción">
+                        <img src="img/dg6.png" class="img-scroll" alt="Descripción">
+                        <img src="img/dg4.png" class="img-scroll" alt="Descripción">
+                        <img src="img/dg8.png" class="img-scroll" alt="Descripción">
+                        <img src="img/dg3.png" class="img-scroll" alt="Descripción">
+                        <img src="img/dg2.jpg" class="img-scroll" alt="Descripción">                                  
+                        <img src="img/dg7.jpg" class="img-scroll" alt="Descripción">                       
+            </section>
+                        
+
+
+
+            <section id="fotografía" class="content-section">
+                <div class="project-header">
+                    <h2>filtraciones</h2>
+                    <h3>2022</h3>
+                    <p>Serie fotográfica compuesta por 10 fotografías analógicas y digitales, tomadas en Bariloche y Buenos Aires en 2022. Una búsqueda luminica de aquello que escapa sus propios limites.
+                        <br><br>Un frío denso. Una quietud sospechosa, incertidumbre, intriga, nervios. Una brújula rota, un mapa en otro idioma. Una pulsión por adentrarse en la oscuridad. Silencio. Una grieta. Lo que se esconde en su interior y lo que desborda. La ruptura como transición hacia la ausencia.
+                        <br><br>¿Y si las cosas se rompen para fundirse con el todo, para borrar sus límites, para dejar de ser cosas y pasar a ser mundo?
+                        <br><br>Expuesta en octubre de 2022 en El Cable Cultural
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="img-scroll">
+                        <img src="img/filt (1).jpg" class="img-scroll" alt="Descripción"> 
+                        <br>                       
+                        <img src="img/filt (2).jpg" class="img-scroll" alt="Descripción">
+                        <br>                       
+                        <img src="img/filt (4).jpg" class="img-scroll" alt="Descripción">
+                        <br>                       
+                        <img src="img/filt (5).jpg" class="img-scroll" alt="Descripción">
+                        <br>                       
+                        <img src="img/filt (6).jpg" class="img-scroll" alt="Descripción">
+                        <br>                       
+                        <img src="img/filt (7).jpg" class="img-scroll" alt="Descripción">
+                    </div>
+                    <div class="img-grid-2">
+                        <img src="img/filt (8).jpg" class="img-scroll" alt="Descripción">                      
+                        <img src="img/filt (9).jpg" class="img-scroll" alt="Descripción">
+                        <img src="img/filt (10).jpg" class="img-scroll" alt="Descripción">                      
+                        <img src="img/filt (11).jpg" class="img-scroll" alt="Descripción">
+                    </div>
+                    <div class="img-scroll">
+                        <img src="img/filt-1.jpg" class="img-scroll" alt="Descripción"> 
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="project-header">
+                    <h2>un paisaje flotante vacío</h2>
+                    <h3>2022</h3>
+                    <p>Fanzine editado a partir de fotos tomadas a modo de bitácora de un viaje a Las Toninas.
+                    Fotografías analógicas capturadas con la intención de dejar un registro material de una ciudad que parece estar desmaterializandose.
+                    <br><br>Impreso en papel vegetal y encuadernado a mano.
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="img-scroll">
+                        <img src="img/pfv1.jpg" class="img-scroll" alt="Descripción"> 
+                        <br>                       
+                        <img src="img/pfv4.jpg" class="img-scroll" alt="Descripción">
+                        <br>
+                        <img src="img/pfv7.jpg" class="img-scroll" alt="Descripción"> 
+                        <br>                       
+                        <img src="img/pfv2.jpg" class="img-scroll" alt="Descripción">
+                        <br>                       
+                        <img src="img/pfv12.jpg" class="img-scroll" alt="Descripción">
+                        <br>                       
+                        <img src="img/pfv5.jpg" class="img-scroll" alt="Descripción">
+                        <br>                       
+                        <img src="img/pfv8.jpg" class="img-scroll" alt="Descripción">
+                        <br>                       
+                        <img src="img/pfv15.jpg" class="img-scroll" alt="Descripción">
+                        <br>                   
+                        <img src="img/pfv11.jpg" class="img-scroll" alt="Descripción">
+                        <br>                       
+                        <img src="img/pfv6.png" class="img-scroll" alt="Descripción">
+                        <br>                       
+                        <img src="img/pfv3.jpg" class="img-scroll" alt="Descripción">
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="project-header">
+                    <h2>breve colección de silencios que me detuve a escuchar</h2>
+                    <h3>2023</h3>
+                    <p>Un mini fanzine casero, editado a partir de fotos digitales tomadas con el celular, impresas, escaneadas y reimpresas.
+                    Un juego entre la desmaterialización digital y la materialización manual.
+                    Una pequeña apreciación de las pausas, del ruido del silencio, de las texturas, y de todo lo que se hace presente cuando el tiempo se detiene.
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="img-scroll">
+                        <img src="img/8-silencios.jpg" class="img-scroll" alt="Descripción">                   
+                    </div>
+                    <div class="img-grid-2">                   
+                        <img src="img/z1.jpg" class="img-scroll" alt="Descripción">
+                        <img src="img/z2.jpg" class="img-scroll" alt="Descripción">                       
+                        <img src="img/z3.jpg" class="img-scroll" alt="Descripción">
+                        <img src="img/z4.jpg" class="img-scroll" alt="Descripción">
+                        <img src="img/z5.jpg" class="img-scroll" alt="Descripción">                       
+                        <img src="img/z6.jpg" class="img-scroll" alt="Descripción">
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="project-header">
+                    <h2>anteojos para salir a mirar</h2>
+                    <h3>2022</h3>
+                    <p>Inspirada por la lectura de Modos de Ver del gran John Berger, y por un deseo de accionar a partir de mis fotos, hice un par de lentes que me permitieran ver el mundo a través de dos imágenes que quiero que guíen mi proceso fotográfico.
+                    <br><br>De yapa, una mini guía ilustrada para que quien guste pueda crear los suyos y compartir los resultados
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="img-scroll">
+                        <img src="img/anteojos (4).jpg" class="img-scroll" alt="Descripción"> 
+                        <br>                       
+                        <img src="img/anteojos (5).jpg" class="img-scroll" alt="Descripción">
+                        <br>
+                        <img src="img/anteojos-guia.jpg" class="img-scroll" alt="Descripción"> 
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="project-header">
+                    <h2>susana</h2>
+                    <h3>2020 - 2022</h3>
+                    <p>Un intento de acercarme a mi abuela, Susana (Susy para lxs amigxs), a través del retrato fotográfico.
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="img-scroll">
+                        <img src="img/Susy.jpg" class="img-scroll" alt="Descripción"> 
+                        <br>
+                        <img src="img/susy-1.jpg" class="img-scroll" alt="Descripción"> 
+                        <br>                       
+                        <img src="img/susy-6.jpg" class="img-scroll" alt="Descripción">
+                        <br>
+                        <img src="img/susy-2.jpg" class="img-scroll" alt="Descripción">
+                        <br>
+                        <img src="img/susy-7.jpg" class="img-scroll" alt="Descripción"> 
+                        <br>                       
+                        <img src="img/susy-4.jpg" class="img-scroll" alt="Descripción">
+                        <br>
+                        <img src="img/susy-5.jpg" class="img-scroll" alt="Descripción">  
+                        <br>
+                        <img src="img/susy-9.jpg" class="img-scroll" alt="Descripción"> 
+                    </div>
+                </div>
+            </section>
+            
+
+
+            <section id="animación" class="content-section">
+                <div class="project-header">
+                    <h2>todo se rompió</h2>
+                    <h3>2025</h3>
+                    <p>Co-dirección, montaje y animación para el videoclip de “Todo se rompió” de Julián Esion.
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="video-container img-scroll">
+                       <iframe src="https://www.youtube.com/embed/QhsvDNxrxlo?si=3AscxsxbVUHaBvQ8" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                       </iframe>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="project-header">
+                    <h2>cuento de fantasía</h2>
+                    <h3>2025</h3>
+                    <p>Videoclip animado para la canción “Cuento de fantasía” de Julián Esion.
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="video-container img-scroll">
+                       <iframe src="https://www.youtube.com/embed/5cBd6fEUbqk?si=2p2wA9vGjh6yS7Yv" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                       </iframe>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="project-header">
+                    <h2>cine sin cámara</h2>
+                    <h3>2025</h3>
+                    <p>
+                      Experimentos animando a mano sobre película super 8. Realizados en el taller de cine sin cámara de La Toma de vistas. 
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="video-container img-scroll">
+                       <iframe src="https://www.youtube.com/embed/oegAj7dJnqY?si=uQM2zBiZ1pUvr7ag" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                       </iframe>
+                    </div>
+                    <div class="video-container img-scroll">
+                       <iframe src="https://www.youtube.com/embed/bp1wIRO01oA?si=yTaUwfy2bIRPiMEj" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                       </iframe>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="project-header">
+                    <h2>biometrika</h2>
+                    <h3>2025</h3>
+                    <p>Animación para las pantallas de la instalación "Biometrika" de Joaquín Fargas.
+                    <br><br>Expuesta en Arte Al Límite - Chile 2025
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="video-container img-scroll">
+                       <iframe src="https://www.youtube.com/embed/G8dSj3f6N6M?si=lAJtEzcJd6MK_emz" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                       </iframe>
+                    </div>
+                    <div class="img-scroll">
+                        <img src="img/bio-1.gif" class="img-scroll" alt="Descripción"> 
+                        <br>                       
+                        <img src="img/bio-2.png" class="img-scroll" alt="Descripción">
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="project-header">
+                    <h2>nuevas formas de vida del fin del mundo</h2>
+                    <h3>2024</h3>
+                    <p>
+                    Ushuaia, Tierra del fuego, Argentina. Año 2075. ¿Qué pasaría si surgieran nuevas formas de vida en el cruce entre la naturaleza y la industria?  
+                    <br><br>Ushuaia es un polo industrial rodeado de montañas y bosques, una ciudad aislada, “el fin del mundo.” En el año 2075, por las particularidades geográficas, un aumento desmedido en la producción industrial y una mala gestión de los  recursos durante varios años, los desechos tecnológicos y la radiación invadieron al ecosistema local dando lugar a nuevas mutaciones genéticas fruto de una relación simbiótica entre tecnología y naturaleza.
+                    <br><br>El fin del mundo como lugar de surgimiento de nuevas formas de vida, de una relación simbiótica entre la naturaleza y la tecnología, donde ambas se nutren mutuamente. Una posnaturaleza del fin del mundo.
+                    <br><br>Un proyecto de ficción especulativa desarrollado durante la cursada de la materia Diseño de Futuros - FADU - UBA.   
+                </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="video-container img-scroll">
+                       <iframe src="https://www.youtube.com/embed/N8f6jsGGsSU?si=32MhI9zGU_wIM2tH" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                       </iframe>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="project-header">
+                    <h2>dithering</h2>
+                    <h3>2023 - 2024</h3>
+                    <p>
+                      Varios experimentos con Dithering. Una obsesion con descomponer las imágenes y hacer foco en los pixeles que les dan vida.
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="video-container img-scroll">
+                       <iframe src="https://www.youtube.com/embed/_X16IOp1hqA?si=SNp8i0f3erKQRPNU" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                       </iframe>
+                    </div>
+                    <div class="video-container img-scroll">
+                       <iframe src="https://www.youtube.com/embed/kdemvUwbFwY?si=yMF9CGUzKNti1A5P" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                       </iframe>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="project-header">
+                    <h2>flores a medio entrenar</h2>
+                    <h3>2024</h3>
+                    <p>
+                    Flores a medio entrenar para regalar en primavera. Animación generada a partir de los resultados extraídos de una red neuronal alimentada con imagenes de flores, cuyo entrenamiento fue interrumpido.
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="img-grid-2">
+                        <img src="img/florgif_1.gif" class="img-scroll" alt="Descripción">                      
+                        <img src="img/florgif_2.gif" class="img-scroll" alt="Descripción">
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="project-header">
+                    <h2>autochocador</h2>
+                    <h3>2024</h3>
+                    <p>
+                    Experimentos de (auto)destrucción de imagenes surgidos de una obsesión con el disco “Autochocador” de Jaime sin tierra. Procesos intrincados que pasan de lo digital a lo material y viceversa, jugando con diversas maneras de “chocar” las imágenes.
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="img-scroll">
+                        <img src="img/renderfrente.gif" class="img-scroll" alt="Descripción"> 
+                        <br>                       
+                        <img src="img/renderfuego.gif" class="img-scroll" alt="Descripción">
+                        <br>                       
+                        <img src="img/renderueda.gif" class="img-scroll" alt="Descripción">
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="project-header">
+                    <h2>en los sueños no avanzo</h2>
+                    <h3>2023</h3>
+                    <p>Mi psicologa lo llama paralisis, yo prefiero decir que en mis sueños no avanzo. Un videominuto que mezcla animación, fotografías, videos y otras técnicas locas, y con el que busco procesar mis traumas. Cuando los supere realizaré una versión en la que corro felizmente hacia el infinito y más allá. Estén atentxs.
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="video-container img-scroll">
+                       <iframe src="https://www.youtube.com/embed/2JmR_xYA7Y0?si=BSJlYlt2q5ACbg6r" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                       </iframe>
+                    </div>
+                </div>                
+            </section>
+
+
+
+
+            <section id="sonido" class="content-section">
+                <div class="project-header">
+                    <h2>años luz</h2>
+                    <h3>2025</h3>
+                    <p>Diseño sonoro para la instalación "Años Luz" de Joaquín Fargas.
+                    <br><br>Expuesta en el CCK en el marco de la muestra Toy Story 30, entre septiembre y diciembre de 2025
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="video-container img-scroll">
+                       <iframe src="https://www.youtube.com/embed/NIsqfCL7ZoE?si=0tTq9Tl21TfIpHKg" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                       </iframe>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="project-header">
+                    <h2>espectrogramas</h2>
+                    <h3>2026</h3>
+                    <p>
+                        wip :D
+                    </p>
+                </div>
+                <div class="project-gallery">
+                    <div class="img-scroll">
+                        <img src="img/spect-wip.png" class="img-scroll" alt="Descripción"> 
+                    </div>
+                </div>
+
+            </section>
+    
+
+            <section id="contacto" class="content-section">
+                <div class="info">
+                    <div class="fg-foto">
+                       <img src="img/FG.JPG" class="img-scroll" alt="Descripción">
+                       <br>
+                        <h4>CONTACTO:</h4>
+                        <p> 
+                            florgold2016@gmail.com
+                            <br>
+                            <a href="https://instagram.com/flor_gold" target="_blank">@flor_gold</a>
+                            <br>
+                            <a href="https://www.youtube.com/@florgold" target="_blank">youtube.com/@florgold</a>
+                            <br><br>
+                            <a href="https://drive.google.com/file/d/1fPVCmQl46zROhoJWXTv2m8d1cNGHwvE0/view?usp=sharing" target="_blank" class="cv-link">CV</a>
+                        </p>
+                    </div>
+                    <div class="fg-bio">
+                        <p> 
+                            Florencia Gold (2001 - Buenos Aires, Argentina) es diseñadora audiovisual y fotógrafa, egresada de la carrera de Diseño de Imagen y Sonido - FADU UBA, donde también es docente de las materias Iluminación y Cámara (Cátedra Valansi) y Diseño de Futuros (Cátedra Martín Iglesias).
+                            <br><br>
+                            Actualmente se dedica al registro y la edición, tanto en video como en fotografía, de proyectos artísticos, al desarrollo y montaje de instalaciones audiovisuales y a la animación experimental. Ha trabajado en la industria cinematográfica en el area de producción, asi como en la organización general y curaduría de la muestra MAGMA (exhibición anual de proyectos audiovisuales, Cátedra Campos-Trilnick - FADU UBA).
+                            <br><br>
+                            En sus proyectos personales se interesa por la exploración interdisciplinaria: sacarle el apellido al diseño, experimentar, y mezclar campos de trabajo, formatos y técnicas, para generar cosas nuevas. Trabaja en la creación de imágenes y sonidos hibridando diversas técnicas analógicas y digitales. Su intierés principal radica justamente en explorar esos cruces inesperados entre materialidades disimiles y en jugar con la destrucción de las imágenes.
+                            <br><br>
+                            También es buenísima en natación.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+
         </main>
-<script>
-// Forzamos que la página empiece arriba de todo al recargar
-window.onbeforeunload = function () {
-    window.scrollTo(0, 0);
-};
-
-window.addEventListener('scroll', function() {
-    // Apuntamos específicamente a la capa de imagen ::before
-    // Nota: JS no puede seleccionar ::before directamente, así que
-    // aplicamos el estilo al contenedor y el CSS lo hereda o lo usamos
-    // para mover la propiedad transform-origin.
-    
-    // Una forma más limpia: aplicamos los estilos directamente al
-    // contenedor `.landing-page`, pero nos aseguramos de que el CSS 
-    // del pseudo-elemento esté bien configurado.
-    
-    const landingContainer = document.querySelector('.landing-page');
-    if (!landingContainer) return;
-
-    const scrollPos = window.scrollY;
-    const windowHeight = window.innerHeight;
-
-    // Solo ejecutamos si estamos viendo la landing
-    if (scrollPos <= windowHeight) {
-        
-        // --- EFECTO FADE SUAVE ---
-        // La opacidad va de 1 a 0. Se apaga al 80% del scroll de pantalla.
-        let opacity = 1 - (scrollPos / (windowHeight * 0.8));
-        if (opacity < 0) opacity = 0;
-        if (opacity > 1) opacity = 1;
-
-        // --- EFECTO ZOOM SIN SALTO ---
-        // Empezamos en 1 (tamaño real). El zoom es sutil.
-        // Si quieres más zoom, sube 0.0003 a 0.0005.
-        let scale = 1 + (scrollPos * 0.0003);
-
-        // APLICAMOS LOS ESTILOS AL CONTENEDOR
-        // Para que esto funcione sin mover el texto, el texto debe tener z-index: 2
-        // y la imagen z-index: 1 en el CSS.
-        landingContainer.style.opacity = opacity;
-        landingContainer.style.transform = `scale(${scale})`;
-    }
-});
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Si entramos con el hash #galeria
-    if (window.location.hash === '#galeria') {
-        const landing = document.querySelector('.landing-page');
-        if (landing) {
-            landing.style.display = 'none';
-            landing.style.opacity = '0';
-        }
-    }
-});
-
-</script>
+    </div>
 
 </body>
 </html>

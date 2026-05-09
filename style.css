@@ -1,756 +1,333 @@
-/* Bloqueo visual de barras en toda la estructura */
-html, body {
+/* --- RESET BÁSICO --- */
+* {
     margin: 0;
     padding: 0;
-    width: 100%;
-    overflow-x: hidden; /* Evita el scroll horizontal */
-    -ms-overflow-style: none;  /* IE y Edge */
-    scrollbar-width: none;  /* Firefox */
-}
-
-/* Para Chrome, Safari y Opera */
-html::-webkit-scrollbar, 
-body::-webkit-scrollbar {
-    display: none !important;
-    width: 0 !important;
-    height: 0 !important;
-}
-
-/* --- LANDING: SECCIÓN INICIAL --- */
-.landing-page {
-    display: flex !important;
-    justify-content: center; /* Centrado base para mobile */
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    position: relative; /* Importante para que el contenido flote encima */
-    overflow: hidden; /* CRÍTICO: Corta el zoom para que no salgan barras */
-    background-color: #000; /* Fondo oscuro para el fade */
-    z-index: 10;
-    margin: 0;
-    padding: 0;
-}
-
-/* Usamos un pseudo-elemento para que el zoom no mueva el texto */
-.landing-page::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('img/landing.png'); /* Revisa la ruta */
-    background-size: cover;
-    background-position: center;
-    
-    /* BORRAMOS background-attachment: fixed; */
-    
-    /* ESTADO INICIAL SIN SALTO: */
-    transform: scale(1); /* Empezamos en tamaño real */
-    opacity: 1; /* Empezamos visible */
-    
-    /* Suavizamos CUALQUIER cambio de tamaño o transparencia */
-    transition: transform 0.1s ease-out, opacity 0.1s ease-out;
-    z-index: 1; /* Detrás del texto */
-}
-
-.landing-content {
-    position: relative;
-    text-align: right; /* Alineación como en tu imagen */
-    z-index: 2;
-    color: white;
-    padding-left: 30%;
-}
-
-/* --- CONTENIDO POST-LANDING --- */
-.grid-container, .navbar {
-    opacity: 1 !important; /* Que no desaparezcan */
-    display: flex !important;
-}
-
-/* Si quieres que la Nav aparezca fija después */
-.navbar {
-    position: relative;
-    top: 0;
-    background-color: #000;
-    z-index: 100;
-}
-
-.landing-content h1 {
-    font-size: 48px;
-    font-weight: 500;
-    margin: 0;
-    letter-spacing: -1px;
-}
-
-.landing-content p {
-    transition: all 0.4s ease-in-out; /* Para que el glow entre y salga suave */
-    text-shadow: 0 0 5px rgba(255, 255, 255, 0); /* Invisible por defecto */
-    margin-top: -5px;
-}
-
-/* Efecto al pasar el mouse por el contenedor */
-.landing-content:hover h1 {
-    color: #fff;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.7), 
-                 0 0 30px rgba(255, 255, 255, 0.4);
-    transform: scale(1.02); /* Un leve aumento de tamaño opcional */
-}
-
-.landing-content:hover p {
-    color: #fff;
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-}
-
-
-/* Configuración General */
-body {
-    background-color: #000;
-    color: #fff;
-    font-family: 'Geist', sans-serif;
-    margin: 0;
-    padding: 0;
-}
-
-/* Si NO hay landing en la página, el contenido debe verse siempre */
-body:not(:has(#landing)) .navbar,
-body:not(:has(#landing)) .grid-container {
-    opacity: 1;
-}
-
-/* El aire lo damos acá */
-.navbar, .grid-container, .info-container {
-    padding-left: 40px;
-    padding-right: 40px;
     box-sizing: border-box;
 }
 
-/* Navegación Superior */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 40px;
-    /* Asegúrate de que la tipografía soporte bold y regular */
-    font-family: 'Geist', sans-serif; 
+
+
+body {
+    background-color: #ffffff; /* Fondo Blanco */
+    color: #000000;          /* Texto Negro */
+    font-family: "Geist", sans-serif;
+    text-rendering: optimizeLegibility;
 }
 
-.navbar ul {
-    list-style: none; /* Quitamos los puntos de la lista */
-    display: flex;
-    gap: 40px;
-    padding: 0;
-    margin: 0;
+/* --- WRAPPER PRINCIPAL (GRID) --- */
+.main-wrapper {
+    display: grid;
+    /* 1ra columna (sidebar) de 250px, 2da columna toma el resto */
+    grid-template-columns: 400px 1fr;
+    height: 100vh; /* Alto total de pantalla */
 }
 
-.navbar a {
-    text-decoration: none;
-    color: #888;          /* Gris para los no seleccionados */
-    font-weight: 400;     /* Regular */
-    font-size: 14px;
-    text-transform: none; /* Forzamos mayúsculas */
-    transition: color 0.3s ease;
-}
-
-/* El seleccionado Y el hover se ven igual: Blancos y Bold */
-.navbar a.active, 
-.navbar a:hover {
-    color: #fff;
-    font-weight: 700;     /* Bold */
-}
-
-.navbar, .grid-container {
-    opacity: 0;
-    transition: opacity 1s ease-in;
-}
-
-.content-visible .navbar,
-.content-visible .grid-container {
-    opacity: 1;
-}
-
-/* Estilo para el nombre en la esquina derecha */
-.user-name {
-    font-weight: 400;
-    font-size: 14px;
-    color: #fff;
-    text-transform: none; /* Mantiene la estética de la imagen */
-}
-
-.grid-container {
-    display: grid !important; /* Forzamos que vuelva a ser Grid */
-    grid-template-columns: repeat(3, 1fr) !important; /* 3 columnas como antes */
-    column-gap: 40px;
-    row-gap: 90px;
-    margin-top: 50px;
-    margin-bottom: 100px;
-    opacity: 1 !important;
-    width: 100%;
-}
-
-/* Aseguramos que las tarjetas no hereden el flex del intento anterior */
-.project-card {
-    display: block !important;
-    width: 100%;
-    cursor: pointer;
-    transition: opacity 0.3s ease;
-}
-
-.project-card:hover {
-    opacity: 0.8;
-}
-
-.project-card img {
-    width: 100%;            /* Ocupa todo el ancho de su columna */
-    aspect-ratio: 4 / 3;   /* Fuerza el formato rectangular horizontal */
-    object-fit: cover;      /* Corta la imagen para que llene el recuadro sin estirarse */
-    display: block;
-    filter: grayscale(20%); /* Opcional: para darle ese toque melancólico de tu diseño */
-    transition: filter 0.3s ease;
-}
-
-.project-card img:hover {
-    filter: grayscale(0%);  /* Recupera color al pasar el mouse */
-}
-
-/* Esto separa las líneas de título y categoría */
-.project-info {
-    margin-top: 12px;    /* Espacio entre la imagen y el texto */
-    display: flex;
-    flex-direction: column; 
-    gap: 4px;            /* Espacio exacto entre el título y la descripción */
-    line-height: 1.4;    /* Altura de línea para que no se pisen las letras */
-    text-align: left;    /* Asegura que todo esté alineado a la izquierda */
-}
-
-.project-info h2, 
-.project-info h3 {
-    margin: 0;           /* Quitamos márgenes por defecto que puedan molestar */
-    font-size: 1.1rem;   /* Ajustalo a tu medida */
-    font-weight: bold;
-}
-
-.project-info p {
-    margin: 0;
-    font-size: 0.9rem;
-    color: #ccc;         /* Un gris claro para que la categoría sea secundaria */
-}
-
-/* Responsivo para celulares */
-@media (max-width: 768px) {
-    .grid-container {
-        display: grid !important;
-        grid-template-columns: 1fr !important; /* Una sola columna */
-        gap: 30px !important;
-        padding: 0 20px !important;
-        width: 100% !important;
-    }
-    .project-card {
-        width: 100% !important;
-    }
-    /* Ajuste para que el texto de la landing no quede tan pegado a la derecha en el celu */
-    .landing-page {
-        justify-content: right !important; /* Lo centramos solo en el celu */
-        padding-right: 0 !important;
-    }
-
-    .landing-content {
-        text-align: center !important;
-        padding: 0 20px;
-    }
-    .landing-page::before {
-        opacity: 0.75 !important; /* 1 es total, 0.6 es un 60%. Ajustalo a tu gusto */
-    }
-}
-
-/* --- Sección +INFO --- */
-
-.info-container {
-    display: flex;
-    justify-content: flex-start;
-    gap: -100px;
-    margin-top: 30px;
-    max-width: 900px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Columna de texto */
-.info-text {
-    flex: 1;
-}
-
-.info-text p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #ccc;
-    margin-bottom: 40px;
-    text-align: justify;
-}
-
-
-.cv-link {
-    display: inline-block;
-    color: #fff;
-    text-decoration: none;
-    font-weight: 700;
-    font-size: 14px;
-    border-bottom: 1px solid #fff;
-    padding-bottom: 5px;
-    transition: opacity 0.3s;
-}
-
-.cv-link:hover {
-    opacity: 0.6;
-}
-
-/* Columna de imagen y contacto */
-.info-visual {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.photo-wrapper img {
-    width: 100%;
-    max-width: 400px; /* Ajusta según el tamaño de tu foto */
-    margin-bottom: 20px;
-}
-
-.contact-data {
-    display: flex;
-    flex-direction: column;
-    
-}
-
-.contact-data p {
-    font-size: 14px;
-    margin-bottom: 5px;
-    color: #ffffff;
-}
-
-.contact-data a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.3s;
-    margin-top: 0;       /* Aseguramos que no tengan margen arriba */
-    line-height: 1;
-    margin-bottom: 100px;
-}
-
-.contact-data a:hover {
-    color: #888;
-}
-
-/* Responsivo para móviles */
-@media (max-width: 768px) {
-/* 1. Reducir el espacio de la sección de contacto */
-    .contact-data  { /* Usá la clase que tenga el bloque de arriba */
-        margin-bottom: 20px !important; /* Achicamos el espacio de abajo */
-        padding-bottom: 0 !important;
-    }
-
-    /* 2. Reducir el espacio superior de la bio */
-    .info-container p { /* Usá la clase de tu texto de bio */
-        margin-top: 10px !important; /* Casi pegado al contacto */
-        line-height: 1.5; /* Para que el párrafo sea legible */
-        text-align: left;
-    }
-}
-
-/* Contenedor Principal */
-.project-detail-container {
-    max-width: 1200px;
-    margin: 80px auto;
-    padding: 0 40px;
-}
-
-/* Layout Superior: Texto e Izquierda, Video a la Derecha */
-.project-hero {
-    display: flex;
-    gap: 60px;
-    align-items: flex-start;
-    margin-bottom: 80px;
-}
-
-@media (max-width: 768px) {
-    /* El contenedor padre pasa de horizontal a vertical */
-    .project-hero {
-        display: flex;
-        flex-direction: column !important;
-        width: 100% !important;
-        padding: 15px; /* Margen para que el texto no toque los bordes */
-    }
-
-    /* La descripción ocupa todo el ancho */
-    .project-description {
-        width: 100% !important;
-        margin-bottom: 30px; /* Espacio antes de que empiece el video */
-    }
-
-    /* El video y el carrusel ocupan todo el ancho */
-    .project-video, 
-    .carousel-container {
-        width: 100% !important;
-    }
-}
-
-.project-description {
-    flex: 1; /* 1 parte de espacio */
-   /* position: sticky; /* Opcional: el texto se queda fijo mientras scrolleas el video */
-   /* top: 100px; */
-    height: max-content; 
-}
-
-.project-description h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    font-weight: 700;
-}
-
-.project-year {
-    color: #555;
-    font-size: 14px;
-    margin-bottom: 30px;
-    
-}
-
-.project-body-text p {
-    font-size: 16px;
-    line-height: 1.6;
-    color: #ccc;
-    margin-bottom: 20px;
-}
-
-/* Video Responsive */
-.video-responsive {
-    position: relative;
-    padding-bottom: 56.25%; 
-    height: 0;
-    overflow: hidden;
-    width: 100%;
-}
-
-.video-responsive iframe {
-    position: absolute;
+/* --- SIDEBAR IZQUIERDO (FIJO) --- */
+.sidebar {
+    position: fixed; /* Mantiene el menú fijo en la pantalla */
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-.project-video {
-    flex: 2;
+    width: 400px;
+    height: 100vh;
+    padding: 90px 90px; /* Margen interior generoso, estilo Figma */
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
-    gap: 40px; /* Espacio entre el video y la galería */
-}
-
-.project-gallery {
-    column-count: 2;
-    column-gap: 15px;
-    width: 100%; /* Ahora se alinea perfecto con el video */
-}
-
-.project-gallery img {
-    width: 100%;
-    display: block;
-    margin-bottom: 15px;
-    break-inside: avoid; /* Evita que las fotos se corten entre columnas */
-    cursor: zoom-in;
-}
-
-.project-gallery img:hover {
-    opacity: 0.8;       /* Un toque visual al pasar el mouse */
-}
-
-/* Esta clase anula las columnas y crea una fila */
-.gallery-row {
-    display: flex;          /* Alinea las fotos de costado */
-    flex-direction: row;    /* Asegura que sea una fila */
-    column-count: auto;     /* Desactiva las columnas anteriores */
-    gap: 15px;              /* Espacio entre las fotos */
-    justify-content: space-between; /* Estira las fotos para que ocupen todo el ancho del video */
-}
-
-.gallery-row img {
-    width: calc(33% - 12px); /* Si son 4 fotos, cada una ocupa el 25% menos el espacio del gap */
-    height: auto;           /* Mantiene la proporción vertical */
-    margin-bottom: 0;       /* Quitamos el margen que usábamos en columnas */
-    object-fit: cover;
-}
-
-/* Ajuste para móviles: si son muchas verticales, mejor que vuelvan a ser 2 y 2 */
-@media (max-width: 768px) {
-    .gallery-row {
-        flex-wrap: wrap; 
-    }
-    .gallery-row img {
-        width: calc(50% - 8px); /* 2 fotos por fila en celular */
-    }
-}
-
-.gallery-row-4 {
-    display: flex;          /* Alinea las fotos de costado */
-    flex-direction: row;    /* Asegura que sea una fila */
-    column-count: auto;     /* Desactiva las columnas anteriores */
-    gap: 15px;              /* Espacio entre las fotos */
-    justify-content: space-between; /* Estira las fotos para que ocupen todo el ancho del video */
-}
-
-.gallery-row-4 img {
-    width: calc(25% - 12px); /* Si son 4 fotos, cada una ocupa el 25% menos el espacio del gap */
-    height: auto;           /* Mantiene la proporción vertical */
-    margin-bottom: 0;       /* Quitamos el margen que usábamos en columnas */
-    object-fit: cover;
-}
-
-/* Ajuste para móviles: si son muchas verticales, mejor que vuelvan a ser 2 y 2 */
-@media (max-width: 768px) {
-    .gallery-row-4 {
-        flex-wrap: wrap; 
-    }
-    .gallery-row-4 img {
-        width: calc(50% - 8px); /* 2 fotos por fila en celular */
-    }
-}
-
-/* Ajuste para que las fotos ocupen todo el ancho en móviles */
-@media (max-width: 768px) {
-    .project-gallery {
-        grid-template-columns: 1fr; /* Una sola columna en celulares */
-        width: 100%;
-    }
-}
-
-
-/* Fondo del Lightbox */
-.lightbox {
-    display: none; /* Oculto por defecto */
-    position: fixed;
-    z-index: 9999; /* Por encima de la navbar */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.9); 
-    justify-content: center;
-    align-items: center;
-    cursor: zoom-out;
-}
-
-/* La foto que se agranda */
-.lightbox-content {
-    max-width: 90%;
-    max-height: 85%;
-    object-fit: contain;
-    animation: fadeIn 0.3s ease;
-}
-
-/* Animación de entrada suave */
-@keyframes fadeIn {
-    from { opacity: 0; transform: scale(0.95); }
-    to { opacity: 1; transform: scale(1); }
-}
-
-/* Botón de cerrar (X) */
-.close-lightbox {
-    position: absolute;
-    top: 20px;
-    right: 40px;
-    color: white;
-    font-size: 40px;
-    font-weight: 200;
-    cursor: pointer;
-}
-
-.main-image-container {
-    width: 100%;
-    height: auto;       /* Ya no forzamos altura fija */
-    aspect-ratio: auto; /* Anulamos el 16/9 para este caso */
-    overflow: hidden;
-    display: block;
-}
-
-.hero-project-image {
-    width: 100%;        /* Se estira hasta los bordes del espacio del video */
-    height: auto;       /* Crece proporcionalmente hacia abajo */
-    display: block;
-    object-fit: contain; /* Asegura que se vea toda la imagen */
-    cursor: zoom-in;
-}
-
-.carousel-container {
-    position: relative; /* Esto es el "ancla" para las flechas */
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    margin-bottom: 40px;
-}
-
-.carousel-slide {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-img {
-    width: 100%;       /* Ocupa el 100% del contenedor */
-    height: 100%;      /* Ocupa toda la altura del contenedor */
-    flex-shrink: 0;    /* VITAL: Evita que las fotos se "aprieten" para entrar todas juntas */
-    object-fit: contain; /* Cambia a 'contain' si prefieres ver la foto entera con bordes negros */
-    display: block;
-}
-
-/* Ajuste de flechas para que no se pierdan */
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: none;
-    padding: 20px 15px;
-    cursor: pointer;
     z-index: 100;
-    font-size: 24px;
-}
-
-.carousel-btn:hover {
-    background: rgba(255, 255, 255, 0.3);
-}
-
-/* Posición de la flecha izquierda */
-.prev {
-    left: 0;
-    border-radius: 0 5px 5px 0; /* Redondea solo las esquinas internas */
-}
-
-/* Posición de la flecha derecha */
-.next {
-    right: 0;
-    border-radius: 5px 0 0 5px; /* Redondea solo las esquinas internas */
-}
-
-@media (max-width: 768px) {
-    /* Contenedor del carrusel */
-    .carousel-container {
-        aspect-ratio: 1 / 1; /* Lo hacemos cuadrado en celu para que las fotos luzcan más */
-        margin: 15px 0;
-        border-radius: 0; /* Quitamos bordes redondeados para aprovechar el ancho total */
-    }
-
-    .carousel-img {
-        object-fit: cover; /* Asegura que llene el cuadrado sin dejar franjas negras */
-    }
-
-    /* Ajuste de flechas para dedos */
-    .carousel-btn {
-        padding: 15px 10px;
-        font-size: 20px;
-        background: rgba(0, 0, 0, 0.2); /* Más transparentes para no tapar la foto */
-        border-radius: 0;
-    }
-
-    /* Opcional: ocultar flechas en celu si querés que solo se deslice (aunque con el JS actual las necesitás) */
-    .prev { left: 0; }
-    .next { right: 0; }
-}
-
-@media (max-width: 768px) {
-    /* Fuerza a que NADA se salga del borde del celular */
-    html, body {
-        width: 100vw !important;
-        overflow-x: hidden !important; /* Corta cualquier cosa que intente sobrar a los costados */
-        position: relative;
-        margin: 0;
-        padding: 0;
-    }
-
-/* El contenedor de las tarjetas (donde están 'quiero verte...', etc.) */
-    .gallery-container, .projects-grid, main { 
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: center !important; /* Centra las tarjetas */
-        padding: 0 20px !important;    /* ESTO da el aire de la Foto 2 */
-        width: 100% !important;
-        box-sizing: border-box !important;
-    }
-
-/* Ajuste de cada tarjeta de proyecto */
-    .project-item {
-        width: 100% !important; /* Que no sea más ancha que el celular */
-        max-width: 100% !important;
-        margin-bottom: 40px !important;
-    }
-
-
-    /* Ajuste del contenedor principal */
-    .project-hero, .main-container, .container { 
-        width: 100% !important;
-        max-width: 100vw !important; /* vw = viewport width */
-        margin-left: 0 !important;
-        margin-right: 0 !important;
-        padding-left: 15px !important;  /* Margen interno para que el texto no toque el borde */
-        padding-right: 15px !important;
-        overflow: hidden; /* Evita que los hijos estiren al padre */
-    }
-
-    /* Aseguramos que la Navbar no sea la culpable */
-    nav, header {
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box;
-    }
-
-    /* --- NUEVA NAVBAR RESPONSIVE DESDE CERO --- */
-
-nav, .navbar { 
-    width: 100% !important;
-    height: auto !important; /* Que crezca según el contenido */
-    padding: 20px 10px !important;
-    display: flex !important;
-    flex-direction: column !important; /* Logo arriba, links abajo */
-    align-items: center !important;
-    gap: 15px !important;
-    box-sizing: border-box !important;
-}
-/* Si tenés el nombre "flor gold" por separado */
-
-
-
-/* El contenedor de los links (ul) */
-.nav-links, nav ul { 
-    display: flex !important;
-    flex-direction: row !important; /* Los mantenemos en fila... */
-    flex-wrap: wrap !important;     /* ...PERO si no entran, que bajen solos */
-    justify-content: center !important;
-    gap: 10px !important;           /* Espacio entre botones */
-    width: 100% !important;
-    padding: 0 !important;
-    list-style: none !important;
-}
-
-/* Los links individuales (a o li) */
-.nav-links li, nav ul li {
-    margin: 0 !important;
-}
-
-.nav-links a, nav ul a {
-    font-size: 0.85rem !important; /* Un poquito más chico para que entre mejor */
-    white-space: nowrap !important; /* Evita que una palabra se parta a la mitad */
 }
 
 .logo {
-    font-size: 1.2rem !important;
-    text-align: center !important;
-    width: 100% !important;
+    font-size: 30px;
+    font-weight: 530;
+    margin-bottom: 30px; /* Espacio bajo tu nombre */
+    line-height: 1.2;
 }
 
-.site-name, .logo-text, .user-name { /* Usá la clase de tu nombre */
-        display: none !important;
+.logo a {
+    text-decoration: none;
+    color: #000000 !important; /* Siempre negro */
+    cursor: pointer;
+}
+
+/* Evitamos que el logo herede cualquier efecto de hover verde */
+.logo a:hover {
+    color: #000000 !important;
+    opacity: 0.7; /* Opcional: una leve transparencia al pasar el mouse */
+}
+
+.categories-menu {
+    list-style: none;
+    /*margin-top: auto; /* Empuja el menú hacia la parte inferior */
+    margin-bottom: auto; /* Mantiene el menú centrado verticalmente */
+}
+
+.categories-menu li {
+    margin-bottom: 1px; /* Espacio entre categorías */
+}
+
+.categories-menu li a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 18px;
+    font-weight: 400;
+    transition: opacity 0.3s ease;
+}
+
+/* Estado normal de los links */
+.categories-menu li a:not(.active):not(:hover) {
+    opacity: 1; /* Un negro levemente apagado */
+}
+
+/* Estado HOVER y ACTIVO (Verde en la captura 2) */
+.categories-menu li a.active,
+.categories-menu li a:hover {
+    color: #8CBB6C; /* El verde grisáceo de tu captura */
+    opacity: 1;
+}
+
+/* Separador de contacto */
+.menu-divider {
+    height: 1px;
+    margin: 20px 0;
+    /* Si no quieres una línea, solo borra esto */
+    /* background-color: rgba(0,0,0,0.1); */
+}
+
+/* --- CONTENIDO DERECHO (SCROLL) --- */
+.content-area {
+    grid-column: 2; /* Ocupa la segunda columna del grid */
+    padding: 90px 60px 60px 40px; /* Aire generoso */
+    overflow-y: auto; /* Permite el scroll independiente */
+}
+
+.land-img-container {
+    width: 100%;
+    height: 70vh; /* O el alto que prefieras según tu diseño */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+#landing-foto {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    /* Mantenemos el fade-in que ya tenías para que aparezca suave */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* --- ESTILOS DE PROYECTOS (FOTO 2) --- */
+.project-header {
+    margin-bottom: 20px;
+}
+
+.project-header h2 {
+    font-size: 32px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.project-header p {
+    font-size: 13px;
+    line-height: 1.2;
+    max-width: 1000px; /* Limitamos ancho de lectura */
+    color: #151515;
+}
+
+.project-header a {
+    color: #151515;
+}
+
+.project-header h3 {
+    font-size: 14px;
+    font-weight: 200;
+    line-height: 1.8;
+    max-width: 900px; /* Limitamos ancho de lectura */
+    color: #888888;
+    margin-bottom: 10px;
+}
+
+.project-gallery {
+    display: flex;
+    flex-direction: column; /* Apilamos hacia abajo */
+    gap: 20px;              /* Espacio entre cada imagen/video */
+    width: 100%;
+    max-width: 1000px;      /* Para que no se estiren infinito en monitores gigantes */
+}
+
+.img-scroll {
+    width: 100%;            /* Ocupa todo el ancho de la columna derecha */
+    height: auto;           /* Mantiene la proporción original */
+    display: block;
+    background-color: #ffffff; /* Un gris muy suave mientras carga */
+}
+
+
+/* Contenedor de dos columnas */
+.img-grid-2 {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important; /* Dos columnas iguales */
+    gap: 10px; /* Espacio entre las dos fotos (ajustalo a tu gusto) */
+    width: 100%;
+}
+
+/* Ajuste para que las imágenes dentro del grid se vean bien */
+.img-grid-2 .img-scroll {
+    margin-bottom: 0; /* Quitamos el margen inferior individual para que el gap del grid mande */
+}
+
+/* RESPONSIVE: En el celular, que vuelvan a ser una sola columna */
+@media (max-width: 768px) {
+    .img-grid-2 {
+        grid-template-columns: 1fr; /* Una columna en mobile */
+        gap: 40px; /* Volvemos al espacio original de la galería */
+    }
+    .img-gallery {
+        column-count: 1;
+    }
+}
+
+.img-gallery {
+    column-count: 2;
+    column-gap: 15px;
+    width: 100%;
+}
+
+.img-gallery img {
+    width: 100%;
+    display: justify;
+    margin-bottom: 15px;
+    break-inside: avoid; /* Evita que las fotos se corten entre columnas */
+}
+
+
+
+/* El contenedor del video */
+.video-container {
+    position: relative;
+    width: 100%;
+    /* Relación de aspecto 16:9 (9 / 16 = 0.5625) */
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    background: #000;
+}
+
+/* El iframe adentro se estira para llenar el contenedor */
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+    border: none;
+}
+
+/* Por defecto, las secciones están ocultas */
+.content-section {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+/* Solo la sección activa se muestra */
+.content-section.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Estilo para el link activo en el menú (opcional) */
+.category-link.active {
+    color: #8CBB6C !important; /* El verde de tu Figma */
+    font-weight: 500;
+}
+
+/* Contenedor principal de la bio */
+.info {
+    display: flex;
+    gap: 20px; /* Espacio generoso entre foto y texto */
+    align-items: flex-start;
+    margin-top: 20px;
+}
+
+/* Contenedor de tu foto */
+.fg-foto {
+    flex: 1; /* Ocupa una parte del espacio */
+    max-width: 350px; /* Controlamos que la foto no sea gigante */
+}
+
+/* El texto de la bio */
+.fg-bio {
+    flex: 1.5; /* Le damos un poco más de espacio al texto que a la foto */
+    max-width: 500px;
+}
+
+.fg-bio p {
+    font-size: 13px;
+    line-height: 1.3; /* Interlineado abierto para mejor lectura */
+    color: #1a1a1a;
+    text-align: justify; /* Opcional: le da un look más editorial */
+}
+.fg-foto p {
+    font-size: 13px;
+    line-height: 1.3; /* Interlineado abierto para mejor lectura */
+    color: #1a1a1a;
+    text-align: justify; /* Opcional: le da un look más editorial */
+}
+.fg-foto h4 {
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.2; /* Interlineado abierto para mejor lectura */
+    color: #1a1a1a;
+    text-align: justify; /* Opcional: le da un look más editorial */
+    margin-bottom: 10px;
+}
+.fg-foto a {
+    font-size: 13px;
+    line-height: 1.15; /* Interlineado abierto para mejor lectura */
+    color: #1a1a1a;
+    text-align: justify; /* Opcional: le da un look más editorial */
+}
+
+/* Ajuste para mobile: una columna */
+@media (max-width: 1024px) {
+    .info {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .fg-foto {
+        max-width: 100%; /* La foto ocupa todo el ancho en el celu */
+    }
+}
+
+/* --- RESPONSIVE (CELULAR) --- */
+@media (max-width: 768px) {
+    .main-wrapper {
+        grid-template-columns: 1fr; /* Una columna */
+    }
+
+    .sidebar {
+        position: relative; /* Ya no es fijo en móvil */
+        width: 100%;
+        height: auto;
+        padding: 40px 20px;
+        text-align: center;
+        border-bottom: 1px solid #e0e0e0;
+    }
+
+    .categories-menu {
+        margin-top: 20px;
+    }
+
+    .content-area {
+        grid-column: 1;
+        padding: 40px 20px;
     }
 }
