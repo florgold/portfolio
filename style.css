@@ -187,6 +187,7 @@ body {
     .img-grid-2 {
         grid-template-columns: 1fr; /* Una columna en mobile */
         gap: 40px; /* Volvemos al espacio original de la galería */
+        column-count: 1;
     }
     .img-gallery {
         column-count: 1;
@@ -329,9 +330,9 @@ body {
     .sidebar ul {
         display: flex; /* La magia sucede acá */
         flex-direction: row; /* Horizontal */
-        /*overflow-x: auto; /* Permite scroll horizontal si tenés muchos items */
-        white-space: nowrap; /* Evita que los nombres salten de línea */
-        gap: 20px;
+        flex-wrap: wrap; /* ESTA ES LA CLAVE: permite los renglones */
+        justify-content: center; /* Centra los items para que se vea balanceado */
+        gap: 10px 20px;
         padding: 0;
         margin: 0;
         list-style: none;
