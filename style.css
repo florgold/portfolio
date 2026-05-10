@@ -1,11 +1,15 @@
+html {
+    scroll-behavior: smooth;
+    /* Ajustá estos px según el alto de tu navbar de 2 renglones */
+    scroll-padding-top: 120px; 
+}
+
 /* --- RESET BÁSICO --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
-
 
 body {
     background-color: #ffffff; /* Fondo Blanco */
@@ -360,7 +364,8 @@ body {
     /* 4. ¡IMPORTANTE! El contenido principal ahora debe bajar */
     /* para no quedar tapado por el nuevo menú fijo */
     .content-section {
-        padding-top: 110px; /* Ajustá este valor según el alto de tu menú */
+        padding-top: 120px; /* Ajustá este valor según el alto de tu menú */
+        margin-top: 0;
     }
         .content-area {
         grid-column: 1;
