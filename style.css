@@ -307,27 +307,56 @@ body {
     }
 }
 
-/* --- RESPONSIVE (CELULAR) --- */
 @media (max-width: 768px) {
-    .main-wrapper {
-        grid-template-columns: 1fr; /* Una columna */
-    }
-
+    /* 1. El contenedor principal de la sidebar */
     .sidebar {
-        position: relative; /* Ya no es fijo en móvil */
-        width: 100%;
-        height: auto;
-        padding: 40px 20px;
-        text-align: center;
-        border-bottom: 1px solid #e0e0e0;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%; /* Ocupa todo el ancho */
+        height: auto; /* Ya no ocupa todo el alto */
+        background: rgba(255, 255, 255, 0.95); /* Un poco de transparencia queda pro */
+        backdrop-filter: blur(5px); /* Efecto de vidrio esmerilado */
+        z-index: 1000;
+        padding: 15px 20px;
+        border-bottom: 1px solid #eee;
     }
 
-    .categories-menu {
-        margin-top: 20px;
+    /* 2. El nav o la lista de items */
+    .sidebar ul {
+        display: flex; /* La magia sucede acá */
+        flex-direction: row; /* Horizontal */
+        overflow-x: auto; /* Permite scroll horizontal si tenés muchos items */
+        white-space: nowrap; /* Evita que los nombres salten de línea */
+        gap: 20px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        
+        /* Ocultar la barra de scroll para que se vea más limpio */
+        -ms-overflow-style: none;
+        scrollbar-width: none;
     }
 
-    .content-area {
+    .sidebar ul::-webkit-scrollbar {
+        display: none;
+    }
+
+    /* 3. Los links individuales */
+    .sidebar ul li a {
+        font-size: 14px;
+        text-transform: lowercase;
+    }
+
+    /* 4. ¡IMPORTANTE! El contenido principal ahora debe bajar */
+    /* para no quedar tapado por el nuevo menú fijo */
+    .content-section {
+        padding-top: 80px; /* Ajustá este valor según el alto de tu menú */
+    }
+        .content-area {
         grid-column: 1;
         padding: 40px 20px;
     }
 }
+
+
