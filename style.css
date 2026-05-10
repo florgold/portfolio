@@ -366,6 +366,7 @@ body {
     .content-section {
         padding-top: 120px; /* Ajustá este valor según el alto de tu menú */
         margin-top: 0;
+        margin-bottom: 40px;
     }
         .content-area {
         grid-column: 1;
