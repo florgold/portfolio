@@ -322,11 +322,14 @@ body {
         border-bottom: 1px solid #eee;
     }
 
+    .logo{
+        text-align: center;
+    }
     /* 2. El nav o la lista de items */
     .sidebar ul {
         display: flex; /* La magia sucede acá */
         flex-direction: row; /* Horizontal */
-        overflow-x: auto; /* Permite scroll horizontal si tenés muchos items */
+        /*overflow-x: auto; /* Permite scroll horizontal si tenés muchos items */
         white-space: nowrap; /* Evita que los nombres salten de línea */
         gap: 20px;
         padding: 0;
