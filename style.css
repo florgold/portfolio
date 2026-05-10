@@ -184,13 +184,18 @@ body {
 
 /* RESPONSIVE: En el celular, que vuelvan a ser una sola columna */
 @media (max-width: 768px) {
-    .img-grid-2 {
-        grid-template-columns: 1fr; /* Una columna en mobile */
-        gap: 40px; /* Volvemos al espacio original de la galería */
-        column-count: 1;
-    }
+    /* Forzamos a que ambos contenedores usen una sola columna */
+    .img-grid-2, 
     .img-gallery {
-        column-count: 1;
+        display: block !important; /* Desactivamos el flex o grid si existían */
+        column-count: 1 !important; /* Forzamos una columna */
+        width: 100%;
+    }
+
+    .img-grid-2 .img-scroll,
+    .img-gallery .img-scroll {
+        width: 100% !important;
+        margin-bottom: 20px; /* Espacio entre fotos ahora que están una abajo de la otra */
     }
 }
 
@@ -342,20 +347,20 @@ body {
         scrollbar-width: none;
     }
 
-    .sidebar ul::-webkit-scrollbar {
-        display: none;
+    .sidebar ul li {
+        list-style: none;
     }
 
-    /* 3. Los links individuales */
     .sidebar ul li a {
-        font-size: 14px;
+        font-size: 13px; /* Bajamos un punto el tamaño para que acomode mejor */
         text-transform: lowercase;
+        display: inline-block;
     }
 
     /* 4. ¡IMPORTANTE! El contenido principal ahora debe bajar */
     /* para no quedar tapado por el nuevo menú fijo */
     .content-section {
-        padding-top: 80px; /* Ajustá este valor según el alto de tu menú */
+        padding-top: 110px; /* Ajustá este valor según el alto de tu menú */
     }
         .content-area {
         grid-column: 1;
