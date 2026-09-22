@@ -137,12 +137,6 @@ body {
     margin-bottom: 10px;
 }
 
-.project-header h4 {
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom: 10px;
-}
-
 .project-header p {
     font-size: 13px;
     line-height: 1.2;
@@ -169,6 +163,13 @@ body {
     gap: 20px;              /* Espacio entre cada imagen/video */
     width: 100%;
     max-width: 1000px;      /* Para que no se estiren infinito en monitores gigantes */
+}
+
+.project-gallery p {
+    font-size: 13px;
+    line-height: 1.2;
+    max-width: 1000px; /* Limitamos ancho de lectura */
+    color: #151515;
 }
 
 .img-scroll {
