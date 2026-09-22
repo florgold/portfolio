@@ -137,6 +137,12 @@ body {
     margin-bottom: 10px;
 }
 
+.project-header h4 {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
 .project-header p {
     font-size: 13px;
     line-height: 1.2;
