@@ -11,11 +11,33 @@ html {
     box-sizing: border-box;
 }
 
+
+
 body {
     background-color: #ffffff; /* Fondo Blanco */
     color: #000000;          /* Texto Negro */
-    font-family: "Geist", sans-serif;
+    /*font-family: "Geist", sans-serif; */
+    font-family: 'Creato Display', sans-serif;
     text-rendering: optimizeLegibility;
+}
+
+/* Declaración de las variantes de la tipografía */
+@font-face {
+    font-family: 'Creato Display';
+    src: url('./fonts/CreatoDisplay-Regular.woff2') format('woff2'),
+         url('./fonts/CreatoDisplay-Regular.woff') format('woff');
+    font-weight: 400; /* Regular */
+    font-style: normal;
+    font-display: swap; /* Evita que el texto quede invisible mientras carga */
+}
+
+@font-face {
+    font-family: 'Creato Display';
+    src: url('./fonts/CreatoDisplay-Bold.woff2') format('woff2'),
+         url('./fonts/CreatoDisplay-Bold.woff') format('woff');
+    font-weight: 700; /* Bold */
+    font-style: normal;
+    font-display: swap;
 }
 
 /* --- WRAPPER PRINCIPAL (GRID) --- */
@@ -133,7 +155,7 @@ body {
 
 .project-header h2 {
     font-size: 32px;
-    font-weight: 500;
+    font-weight: 700;
     margin-bottom: 10px;
 }
 
